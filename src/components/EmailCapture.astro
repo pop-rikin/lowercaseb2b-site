@@ -1,0 +1,26 @@
+---
+const { label = "Work Email", placeholder = "emma@email.com" } = Astro.props;
+---
+<form
+  method="post"
+  action="#book"
+  class="max-w-[480px] w-full"
+>
+  <label for="work-email" class="block font-mono text-[11px] tracking-tight text-muted mb-2">{label}</label>
+  <div class="flex flex-col sm:flex-row gap-2">
+    <input
+      id="work-email"
+      type="email"
+      name="email"
+      required
+      placeholder={placeholder}
+      class="flex-1 border border-line bg-bg px-4 py-3 text-[14px] focus:outline-none focus:border-ink rounded-sm"
+    />
+    <button
+      type="submit"
+      class="font-mono text-[11px] tracking-[0.15em] uppercase bg-button text-white px-6 py-3 rounded-sm hover:opacity-90 transition"
+    >
+      Let's Talk
+    </button>
+  </div>
+</form>

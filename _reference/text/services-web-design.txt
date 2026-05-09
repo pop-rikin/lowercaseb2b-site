@@ -1,0 +1,23 @@
+URL: https://www.lowercaseb2b.com/services/web-design
+Title: The Framer & Webflow agency for early stage B2B startups
+
+HERO:
+- Heading: "Inspired sites built for B2B growth"
+- Subhead: "Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all."
+- Email capture (same)
+
+LOGO STRIP: same as homepage
+
+OUR WORK CAROUSEL (same 7 cards as homepage)
+
+WHAT WE DO (4 cards, slightly different from homepage):
+Heading: "What We Do"
+Body: "Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all."
+1 — Site architecture first. We optimize your site structure based on a deep knowledge of how crawlers view content on the web.
+2 — Product & sales led CRO. Signups, demos scheduled, leads captured, meetings booked — we know what it means to grow B2B.
+3 — Framer and Webflow experts. Certified partners and experts in the two leading platforms for scalable content driven site builders.
+4 — Integrations & attribution. From CRMs to custom event setup and attribution for analytics and ad platforms — we'll make it work.
+
+FOOTER (same): Big Button To Book a Meeting + service line + copyright.
+
+NOTE: Shorter page than the SEO page — no pricing, no proven success stats, no testimonials carousel.

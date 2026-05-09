@@ -1,0 +1,61 @@
+URL: https://www.lowercaseb2b.com/services/product-positioning
+Title: The Product Positioning Agency for B2B startups
+
+UNIQUE OPENING ANIMATION:
+Big "3" with caption "Three seconds — The average time before someone decides to scroll or leave your hero section."
+
+HERO:
+- Heading: "Product positioning crafted by our PMMs — tested on your ICP."
+- Subhead: "A 3 week, 5 phase intensive to craft messaging that compels the right audience to action."
+- Email capture (same)
+
+LOGO STRIP: same
+
+SECTION — Solving for the toughest questions:
+Heading: "Solving for the toughest questions."
+Body: "Your positioning isn't a future promise or a lofty pitch — it's the story that makes your product a compelling solution today."
+Three cards:
+- ICP selection — Navigate the most difficult task — choosing where to start.
+- Memorable heroes — Find clarity & differentiation in a sea of sameness.
+- Pricing & packaging — Minimize the cognitive load - remove the barriers to purchase.
+
+SECTION — 3 second rule:
+Heading: "Does your hero pass the 3 second rule?"
+Body: "The average visitor spends just three seconds on your hero before they decide to click, scroll, or leave. Rule of thumb — answer two of the following three questions in that time."
+Three questions:
+1 — What is it?
+2 — Who is it for?
+3 — What makes it different?
+Closing: "Why two? Answer just one and you're being too cute. Answer all three and you're overestimating the average visitor."
+
+SECTION — PMMs:
+Heading: "Crafted by proven PMMs — tested with real buyers"
+Body: "We test our messaging because we're experienced enough to know we have to."
+Tag: "DECADES OF EXPERIENCE"
+
+SECTION — The process (4 phases):
+Heading: "The process."
+Body: "We bring a product mindset to content creation — custom tooling and systems evolved over numerous engagements with startups in scale mode."
+1. Discovery — We dive into your product, pricing, GTM motion, customer insights, and competitive context. This foundation helps us understand your unique opportunity and what sets you apart.
+2. Segmentation — We define the key buyer personas, their pain points, and what truly drives their decisions. This ensures your messaging speaks directly to the right audiences, not everyone at once.
+3. Wireframing — We translate your positioning into a homepage wireframe that tells your story clearly and persuasively. Every section earns its place.
+4. ICP Testing — We test your messaging and homepage wireframe with individuals who match your ideal customer profile. We gather what resonates, what confuses, and what needs refinement — before you go live.
+
+DISCOVERY TAG-CLOUD (decoration):
+Vision, Mission, Core Values, Market Size, Category Definition, Industry Trends, Narrative Themes, Product Features, Differentiators, Product Roadmap, Use Cases, Existing Customers, Customer Outcomes, Integrations, Limitations, Pricing, Packages, Trial / Tiers, Sales Motion, Onboarding Flow, Channel Strategy, Conversion Funnel, Churn Behavior, Buyer Personas, Job Titles, Testimonials, Case Studies, Objections, Decision Triggers, Support Tickets
+
+SEGMENTATION VISUAL (territory examples):
+- Territory 1 — CEOs, Boards, Investors — "Profitability under time constraint as the primary objective." (Opportunity / Audience / Positioning)
+- Territory 2 — CMOs, Heads of Growth, Director of Retention — "No one owns LTV within ecomm brands."
+- Territory 3 — CMO, Head of Growth, Director of Lifecycle — "Traditional retention teams are hamstrung by data resources." / "Surgical experts. Extension of the team. AI experts in the loop for email/SMS."
+
+WIREFRAMING VISUAL (sample wireframe content):
+- H1 For SEO
+- Your 3 Second Hero Headline
+- "Whose it for? What's it do? Why is it different?"
+- Do This / Or This (CTAs)
+- Their Problem / Your Solution
+- Reason To Believe 1, 2, 3 (each with lorem ipsum body)
+- The First Step Towards Value (final CTA, with lorem ipsum body)
+
+FOOTER (same dark CTA panel)

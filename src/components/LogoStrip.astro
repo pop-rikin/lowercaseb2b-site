@@ -1,0 +1,15 @@
+---
+const { label = "OPERATORS, FOUNDERS, & THEIR VCs LOVE LOWERCASE" } = Astro.props;
+const logos = [
+  "marpipe","soona","GoFractional","ROADIO","CBTAA","Winback",
+  "MeshMap","Rings","pearl talent","UPchieve","perform","airpost","saltbox"
+];
+---
+<section class="py-16">
+  <p class="text-center font-mono text-[11px] tracking-[0.15em] text-muted mb-8">{label}</p>
+  <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-muted/70">
+    {logos.map((name) => (
+      <span class="font-mono text-[13px] uppercase tracking-tight">{name}</span>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,80 @@
+URL: https://www.lowercaseb2b.com/services/seo
+Title: SEO & AEO agency for B2B startups.
+
+NAV (expanded sidebar - shows on service pages):
+- Services
+  - SEO & Content
+  - Web Dev & Design
+  - Product Positioning
+- Work
+- Writing
+- Connect
+- Let's Talk
+
+ANNOUNCEMENT BANNER (top):
+"• NEW  lowercase partners with Geostar.ai and Gumshoe.ai to optimize B2B for GEO"
+
+HERO:
+- Heading: "SEO & AEO for the AI era"
+- Subhead: "Combining the best B2B content creators with powerful AI workflows. Driving 1M+ organic visitors per month."
+- Email capture: same Work Email + LET'S TALK pattern
+
+LOGO STRIP: same as homepage (OPERATORS, FOUNDERS, & THEIR VCs LOVE LOWERCASE)
+
+SECTION — Content evolution:
+- Heading: "Content creation & distribution has evolved."
+- Body: "Companies need a methodical content approach designed for search engines and LLM crawlers."
+- Tags/badges: GEO, Speech > Text, Case Studies, Video Search, Programmatic Content, AI SERP Features, Lead Magnets
+
+SECTION — Content engineers:
+- Heading: "We're content engineers."
+- Body: "That latest strategies, custom AI agents, and expert human editors delivering authoritative content on brand and at scale."
+
+SECTION — Proven success (stats):
+- Heading: "Proven success."
+- Sub: "Proud to boast a 95% customer retention rate."
+- Stats:
+  - 2-5x — Monthly Content Production
+  - 1M+ — Search & LLM Visits/Mo Managed
+  - 10x — Organic Keywords
+- CTA: Let's Talk
+
+SECTION — The process (5 phases):
+- Heading: "The process."
+- Body: "We bring a product mindset to content creation — custom tooling and systems evolved over numerous engagements with startups in scale mode."
+- Phases:
+  1. Knowledge Base — We build a single source-of-truth that powers and refines all future content. Designed for collaboration and to be increasingly intelligent as we continuously intake more information.
+  2. Audit & Strategy — We don't believe in random acts of content. Instead, we create the most complete SEO audit. Identify your content opportunity, benchmark competitor content investments, and design a 6+ month content roadmap.
+  3. Architecture — Pretty websites suck. We optimize your site for search and LLM crawlers by re-architecting your sitemap, key UX components, and internal-linking strategy.
+  4. Execution — High quality and high volume content creation by combining expert editors with powerful AI workflows. We start with strategy & content creation all the way through publishing on your CMS of choice.
+  5. Refinement — Monthly SEO audits to identify opportunities for improved rankings and increased organic traffic with both new and optimized content.
+
+KNOWLEDGE BASE TAG-CLOUD (visual decoration around process section):
+Pricing Models, Reasons To Believe, Company Stats, Voice and Tone, Competitor Benefits, Elevator Pitch, Customer Profiles, Mission and Vision, Product Lines, Competitor Pricing, Product Features, Case Studies, Founder Story, Taglines, Newsletters, Investors, Funding, Brand Don'ts, Brand Do's, Team Profiles, Legal Disclaimers, Awards & Recognition, Customer Reviews, SEO Research
+
+ARCHITECTURE VISUAL (URL paths shown as decorative element):
+/industries…, /finance…, /crm…, /company-1…, /partner-1…, /partner-2…, /partner-3…, /partner-4…, /articles…, /webinars…, /case-studies…, /events…, /calculators…, /retail…, /data-extraction…, /company-3…, /real-estate…, /data-enrichment…, /company-2…, /insurance…, /agents/integrations, /pricing/solutions, /compare/resources
+
+EXECUTION COMPONENTS (visual list):
+Competitor Analysis, On-Page Optimizations, Content Creation, Visibility Changes
+
+PULL QUOTE:
+"Many agencies have audited our site before - lowercase's SEO audit and strategy is the best we've ever seen."
+— Aly Murray, CEO of UPchieve
+
+PRICING SECTION:
+- Heading: "Let's get started."
+- Body: "Plans and pricing built for startups looking to scale way beyond the PMF stage."
+- Plan card:
+  - Title: SEO & AEO Strategy, Content Creation, & Optimizations
+  - Price: Starting at $6,000/mo
+  - Features (left col — Customized Services): Programmatic Content, Case Studies & Lead Magnets, Link Building, Newsletters, Technical SEO, Social Channel Management
+  - Features (right col — How We Work): Flexible Terms, Dedicated Strategist, B2B Experienced Editors, Slack Channel, Notion Project Trackers, Weekly/Bi-Weekly Stand Ups
+- CTA: Let's Talk
+
+THE PROOF (testimonials carousel):
+- Heading: "The proof."
+- Sub: "A little bit of client love — you'll love us too."
+- Same 4 testimonials as homepage (Pearl Talent, Marpipe, Winback, Perform), repeated.
+
+FOOTER (same as homepage): Big Button To Book a Meeting, footer service line, copyright.

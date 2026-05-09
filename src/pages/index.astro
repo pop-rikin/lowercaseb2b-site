@@ -1,0 +1,430 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmailCapture from "../components/EmailCapture.astro";
+import LogoStrip from "../components/LogoStrip.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import montyImg from "../assets/headshots-v2-monty.png";
+import danImg from "../assets/headshots-v2-dan.png";
+import deanImg from "../assets/headshots/dean-ginsburg.png";
+import amitImg from "../assets/headshots/amit-patel.png";
+import marpipeImg from "../assets/work/marpipe.png";
+import pearlTalentImg from "../assets/work/pearl-talent.png";
+import winbackVid from "../assets/work/winback.mp4?url";
+import performVid from "../assets/work/perform.mp4?url";
+import roadioVid from "../assets/work/roadio.mp4?url";
+import gofractionalVid from "../assets/work/gofractional.mp4?url";
+import meshmapVid from "../assets/work/meshmap.mp4?url";
+
+const testimonials = [
+  { quote: "Rikin and the lowercase team are insanely good at SEO. They completely wowed us — so much so that we've started working with lowercase instead of our previous provider.", who: "Monty Ngan, Cofounder of Pearl Talent", img: montyImg },
+  { quote: "It feels like you actually understand our business - we've worked with many agencies in the past and that is rare.", who: "Dan Pantelo, Founder & CEO of Marpipe", img: danImg },
+  { quote: "You can tell the lowercase team is built differently. They've been in-house at companies in our industry and it shows in their obsession over impact and quality.", who: "Dean Ginsburg, Founder of Winback", img: deanImg },
+  { quote: "When we needed to reposition our entire GTM process, lowercase effortlessly led us through a rebrand and an entirely new site build.", who: "Amit Patel, Founder, Perform", img: amitImg },
+];
+
+const work = [
+  { name: "WINBACK", category: "LTV FOR ECOMM", services: "WEB DESIGN • BRANDING • POSITIONING", video: winbackVid },
+  { name: "PERFORM", category: "NEARSHORE STAFFING", services: "WEB DESIGN • SEO • BRANDING • POSITIONING", video: performVid },
+  { name: "ROADIO", category: "AI CAMERAS FOR EBIKES", services: "BRAND • WEBFLOW • ECOMM INTEGRATION • CONTENT", video: roadioVid },
+  { name: "MARPIPE", category: "BEHAVIORAL ANALYTICS FOR ECOMM", services: "SEO • PAID ACQUISITION", image: marpipeImg },
+  { name: "GO FRACTIONAL", category: "FRACTIONAL RECRUITING PLATFORM", services: "SEO • CONTENT", video: gofractionalVid },
+  { name: "MESHMAP", category: "GAMES & EXPERIENCES FOR AR", services: "FRAMER WEB DESIGN", video: meshmapVid },
+  { name: "PEARL TALENT", category: "REMOTE STAFFING", services: "SEO • CONTENT", image: pearlTalentImg },
+];
+
+const services = [
+  { icon: "ph:magnifying-glass-light", label: "SEO / AEO", href: "/services/seo" },
+  { icon: "ph:chat-circle-text-light", label: "Content Creation", href: "/services/seo" },
+  { icon: "ph:flag-light", label: "Product Positioning", href: "/services/product-positioning" },
+  { icon: "ph:browsers-light", label: "Framer & Webflow", href: "/services/web-design" },
+  { icon: "ph:cube-light", label: "Brand Design", href: "/services/web-design" },
+];
+
+const heritageLogos = ["FOURSQUARE","Apple","Uber","descript","Edelman","Shopify"];
+
+const seoPoints = [
+  { n: 1, title: "Custom knowledge base + content engine.", body: "We build a knowledge base specific to your brand to create unique & brand consistent content at scale." },
+  { n: 2, title: "Expert editors-in-the-loop.", body: "Our writers have extensive experience creating B2B content that's optimized for search, engaging, and authoritative." },
+  { n: 3, title: "Frontier SEO and AIO strategies.", body: "We're at the forefront of optimizing for visibility in LLMs with partnerships across top emerging platforms." },
+];
+
+const webPoints = [
+  { n: 1, title: "Site architecture first.", body: "We optimize your site structure based on a deep knowledge of how crawlers view content on the web." },
+  { n: 2, title: "Product & sales led CRO.", body: "Signups, demos scheduled, leads captured, meetings booked — we know what it means to grow B2B." },
+  { n: 3, title: "Framer and Webflow experts.", body: "We're really, really good at Framer and Webflow. Build from scratch or scale what you already have." },
+  { n: 4, title: "B2B integrations & partners.", body: "From Attio to Zoho Forms - and Hubspot too - we're experts at integrating your site with your entire stack." },
+];
+
+const positioningCards = [
+  { title: "ICP selection", body: "Navigate the most difficult task — choosing where to start." },
+  { title: "Memorable heroes", body: "Find clarity & differentiation in a sea of sameness." },
+  { title: "Pricing & packaging", body: "Simplify selection and minimize the barriers to purchase." },
+];
+---
+<BaseLayout title="SEO, GEO, and web design for startups and scale-ups.">
+  <!-- HERO -->
+  <section class="px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
+    <h1 class="max-w-[960px]">
+      SEO, GEO, and web design for startups and scale-ups.
+    </h1>
+    <p class="mt-6 font-mono text-[12px] tracking-tight text-muted">
+      <span class="text-accent">●</span> FRAMER &amp; WEBFLOW DEVELOPMENT  |  SEO / GEO (AI SEARCH)  |  CONTENT CREATION  |  PRODUCT POSITIONING
+    </p>
+    <div class="mt-12">
+      <EmailCapture />
+    </div>
+  </section>
+
+  <LogoStrip />
+
+  <style>
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .testimonial-quote.slide-in {
+      animation: slide-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 120ms;
+    }
+    .testimonial-cite.slide-in {
+      animation: slide-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 280ms;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testimonial-quote.slide-in, .testimonial-cite.slide-in { animation: none; }
+    }
+  </style>
+
+  <!-- TESTIMONIALS -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32 flex justify-center">
+    <div class="testimonial-carousel w-full max-w-[900px] text-center" data-count={testimonials.length}>
+      <div class="overflow-hidden">
+        <div class="testimonial-track flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+          {testimonials.map((t) => (
+            <figure class="testimonial-slide w-full shrink-0 flex flex-col items-center space-y-6 px-4">
+              <blockquote class="testimonial-quote text-[22px] sm:text-[26px] leading-snug font-light tracking-tight">
+                "{t.quote}"
+              </blockquote>
+              <figcaption class="testimonial-cite flex items-center gap-3 font-mono text-[11px] tracking-tight text-muted">
+                <Image src={t.img} alt={t.who} width={32} height={32} class="w-8 h-8 rounded-full object-cover" />
+                <span>{t.who}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <button
+          type="button"
+          class="testimonial-prev w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition"
+          aria-label="Previous testimonial"
+        >
+          <Icon name="ph:arrow-left-light" class="w-5 h-5" />
+        </button>
+        <div class="flex items-center gap-3">
+          <span class="testimonial-counter font-mono text-[11px] tracking-tight text-muted">
+            01 / {String(testimonials.length).padStart(2, "0")}
+          </span>
+          <div class="testimonial-progress relative h-px w-32 bg-line overflow-hidden">
+            <div class="testimonial-progress-bar absolute inset-y-0 left-0 bg-accent" style="width: 0%"></div>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="testimonial-next w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition"
+          aria-label="Next testimonial"
+        >
+          <Icon name="ph:arrow-right-light" class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.querySelectorAll<HTMLElement>(".testimonial-carousel").forEach((root) => {
+      const track = root.querySelector<HTMLElement>(".testimonial-track")!;
+      const counter = root.querySelector<HTMLElement>(".testimonial-counter")!;
+      const prev = root.querySelector<HTMLButtonElement>(".testimonial-prev")!;
+      const next = root.querySelector<HTMLButtonElement>(".testimonial-next")!;
+      const count = Number(root.dataset.count ?? "0");
+      const slides = root.querySelectorAll<HTMLElement>(".testimonial-slide");
+      let i = 0;
+      const animateSlide = (idx: number) => {
+        const slide = slides[idx];
+        if (!slide) return;
+        slide.querySelectorAll<HTMLElement>(".testimonial-quote, .testimonial-cite").forEach((el) => {
+          el.classList.remove("slide-in");
+          void el.offsetWidth;
+          el.classList.add("slide-in");
+        });
+      };
+      const render = () => {
+        track.style.transform = `translateX(-${i * 100}%)`;
+        counter.textContent = `${String(i + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}`;
+        animateSlide(i);
+      };
+      const ROTATE_MS = 4000;
+      const progressBar = root.querySelector<HTMLElement>(".testimonial-progress-bar")!;
+      const resetProgress = () => {
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+        void progressBar.offsetWidth;
+        progressBar.style.transition = `width ${ROTATE_MS}ms linear`;
+        progressBar.style.width = "100%";
+      };
+      const tick = () => { i = (i + 1) % count; render(); resetProgress(); };
+      let timer = window.setInterval(tick, ROTATE_MS);
+      resetProgress();
+      const restart = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(tick, ROTATE_MS);
+        resetProgress();
+      };
+      prev.addEventListener("click", () => { i = (i - 1 + count) % count; render(); restart(); });
+      next.addEventListener("click", () => { i = (i + 1) % count; render(); restart(); });
+      root.addEventListener("mouseenter", () => {
+        window.clearInterval(timer);
+        const w = getComputedStyle(progressBar).width;
+        progressBar.style.transition = "none";
+        progressBar.style.width = w;
+      });
+      root.addEventListener("mouseleave", restart);
+    });
+  </script>
+
+  <!-- OUR WORK -->
+  <section class="work-section px-6 sm:px-12 lg:px-20 py-32" data-count={work.length}>
+    <div class="flex items-end justify-between mb-12 gap-6 flex-wrap">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Our work.</h2>
+      <div class="work-view-toggle inline-flex items-center font-mono text-[11px] tracking-[0.1em] uppercase border border-line rounded-sm overflow-hidden">
+        <button type="button" data-view="carousel" class="work-view-btn px-4 py-2 transition" aria-pressed="true">Carousel</button>
+        <button type="button" data-view="grid" class="work-view-btn px-4 py-2 transition border-l border-line" aria-pressed="false">Grid</button>
+      </div>
+    </div>
+
+    <!-- CAROUSEL VIEW -->
+    <div class="work-carousel mx-auto">
+      <div class="overflow-hidden">
+        <div class="work-track flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+          {work.map((w) => (
+            <div class="work-slide w-full shrink-0 px-2">
+              <article class="relative aspect-[16/9] rounded-sm bg-panel text-white overflow-hidden">
+                <div class="absolute top-14 bottom-14 left-6 right-6 flex items-center justify-center">
+                  {w.video ? (
+                    <video src={w.video} autoplay loop muted playsinline preload="metadata" class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+                  ) : w.image ? (
+                    <Image src={w.image} alt={w.name} class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+                  ) : null}
+                </div>
+                <header class="absolute top-5 left-6 right-6 font-mono text-[11px] tracking-tight z-10">
+                  <span class="font-bold">{w.name}</span>  •  {w.category}
+                </header>
+                <footer class="absolute bottom-5 left-6 right-6 font-mono text-[10px] tracking-[0.1em] text-white/80 z-10">{w.services}</footer>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <button type="button" class="work-prev w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition" aria-label="Previous case study">
+          <Icon name="ph:arrow-left-light" class="w-5 h-5" />
+        </button>
+        <div class="flex items-center gap-3">
+          <span class="work-counter font-mono text-[11px] tracking-tight text-muted">
+            01 / {String(work.length).padStart(2, "0")}
+          </span>
+          <div class="work-progress relative h-px w-32 bg-line overflow-hidden">
+            <div class="work-progress-bar absolute inset-y-0 left-0 bg-accent" style="width: 0%"></div>
+          </div>
+        </div>
+        <button type="button" class="work-next w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition" aria-label="Next case study">
+          <Icon name="ph:arrow-right-light" class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <div class="work-grid hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
+      {work.map((w) => (
+        <article class="relative aspect-[4/3] rounded-sm bg-panel text-white overflow-hidden">
+          <div class="absolute top-12 bottom-12 left-4 right-4 flex items-center justify-center">
+            {w.video ? (
+              <video src={w.video} autoplay loop muted playsinline preload="metadata" class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+            ) : w.image ? (
+              <Image src={w.image} alt={w.name} class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+            ) : null}
+          </div>
+          <header class="absolute top-4 left-4 right-4 font-mono text-[11px] tracking-tight z-10">
+            <span class="font-bold">{w.name}</span>  •  {w.category}
+          </header>
+          <footer class="absolute bottom-4 left-4 right-4 font-mono text-[10px] tracking-[0.1em] text-white/80 z-10">{w.services}</footer>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .work-view-btn[aria-pressed="true"] { background: var(--color-panel); color: white; }
+    .work-view-btn[aria-pressed="false"] { color: #404040; }
+    .work-view-btn[aria-pressed="false"]:hover { color: var(--color-ink); }
+  </style>
+
+  <script>
+    document.querySelectorAll<HTMLElement>(".work-section").forEach((root) => {
+      const toggleBtns = root.querySelectorAll<HTMLButtonElement>(".work-view-btn");
+      const carousel = root.querySelector<HTMLElement>(".work-carousel")!;
+      const grid = root.querySelector<HTMLElement>(".work-grid")!;
+      const setView = (view: "carousel" | "grid") => {
+        toggleBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
+        carousel.classList.toggle("hidden", view !== "carousel");
+        grid.classList.toggle("hidden", view !== "grid");
+      };
+      toggleBtns.forEach((b) => b.addEventListener("click", () => setView(b.dataset.view as "carousel" | "grid")));
+
+      const track = root.querySelector<HTMLElement>(".work-track")!;
+      const counter = root.querySelector<HTMLElement>(".work-counter")!;
+      const prev = root.querySelector<HTMLButtonElement>(".work-prev")!;
+      const next = root.querySelector<HTMLButtonElement>(".work-next")!;
+      const count = Number(root.dataset.count ?? "0");
+      const progressBar = root.querySelector<HTMLElement>(".work-progress-bar")!;
+      const ROTATE_MS = 4000;
+      let i = 0;
+      const render = () => {
+        track.style.transform = `translateX(-${i * 100}%)`;
+        counter.textContent = `${String(i + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}`;
+      };
+      const resetProgress = () => {
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+        void progressBar.offsetWidth;
+        progressBar.style.transition = `width ${ROTATE_MS}ms linear`;
+        progressBar.style.width = "100%";
+      };
+      const tick = () => { i = (i + 1) % count; render(); resetProgress(); };
+      let timer = window.setInterval(tick, ROTATE_MS);
+      resetProgress();
+      const restart = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(tick, ROTATE_MS);
+        resetProgress();
+      };
+      prev.addEventListener("click", () => { i = (i - 1 + count) % count; render(); restart(); });
+      next.addEventListener("click", () => { i = (i + 1) % count; render(); restart(); });
+      carousel.addEventListener("mouseenter", () => {
+        window.clearInterval(timer);
+        const w = getComputedStyle(progressBar).width;
+        progressBar.style.transition = "none";
+        progressBar.style.width = w;
+      });
+      carousel.addEventListener("mouseleave", restart);
+    });
+  </script>
+
+  <!-- WHAT WE DO -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">What we do.</h2>
+    <p class="mt-6 max-w-[920px] text-[16px] leading-relaxed">
+      We're GTM engineers who build growth and content engines for startups doing 7-8 figures in ARR.
+      We build beautiful brands and websites because we're obsessed with beautiful brands and websites.
+      Blame it on <a href="/clients" class="text-accent underline-offset-4 hover:underline">our CEO</a>.
+    </p>
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {services.map((s) => (
+        <a href={s.href} class="group relative aspect-[5/3] border border-line bg-bg flex items-center px-8 hover:border-ink transition rounded-sm">
+          <Icon name={s.icon} class="text-ink mr-4" width={22} height={22} />
+          <span class="text-[20px] tracking-tight">{s.label}</span>
+          <span class="dot-grid absolute top-5 right-5 inline-grid grid-cols-3 grid-rows-3 gap-[3px]">
+            <span class="w-[2px] h-[2px] rounded-full bg-ink"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-ink"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-ink"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-transparent"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-transparent"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-ink"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-transparent"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-transparent"></span>
+            <span class="w-[2px] h-[2px] rounded-full bg-ink"></span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">
+      Decades of doing — but never nostalgic.
+    </h2>
+    <p class="mt-6 max-w-[920px] text-[16px] leading-relaxed text-ink/80">
+      We've been in-house marketing leaders at many companies you've heard of (and many early stage start ups too). But we're more excited about what's next and are always first to venture forward.
+    </p>
+    <div class="mt-12 flex flex-wrap items-center gap-x-12 gap-y-6 text-muted">
+      {heritageLogos.map((l) => (
+        <span class="font-mono text-[14px] tracking-tight">{l}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT & SEO PANEL (dark) -->
+  <section class="bg-panel text-white px-6 sm:px-12 lg:px-20 py-32">
+    <div class="flex justify-between items-baseline">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Content &amp; SEO for the AI era.</h2>
+      <a href="/services/seo" class="font-mono text-[11px] tracking-[0.15em] text-white/70 hover:text-white">— LEARN MORE</a>
+    </div>
+    <p class="mt-6 max-w-[820px] text-white/80">
+      Architecting sites for search and LLMs. Combining the best B2B writers with powerful AI workflows. That's how we drive 1M+ organic visitors to clients each month.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+      {seoPoints.map((p) => (
+        <div class="bg-panel p-8 min-h-[280px]">
+          <span class="font-mono text-[11px] text-white/60">{p.n} —</span>
+          <h3 class="mt-4 text-[22px] tracking-tight font-light leading-tight">{p.title}</h3>
+          <p class="mt-4 text-[14px] text-white/70 leading-relaxed">{p.body}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 flex justify-center">
+      <a href="https://cal.com/rikin-diwan/lowercase-intro" target="_blank" rel="noreferrer" class="inline-block bg-white text-panel font-mono text-[11px] tracking-[0.15em] uppercase px-8 py-3 rounded-sm hover:opacity-90">Let's Talk</a>
+    </div>
+  </section>
+
+  <!-- INSPIRED SITES -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <div class="flex justify-between items-baseline">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Inspired sites built for growth.</h2>
+      <a href="/services/web-design" class="font-mono text-[11px] tracking-[0.15em] text-muted hover:text-ink">— LEARN MORE</a>
+    </div>
+    <p class="mt-6 max-w-[820px] text-[16px] leading-relaxed text-ink/80">
+      Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
+      {webPoints.map((p) => (
+        <div class="bg-bg p-8 min-h-[260px]">
+          <span class="font-mono text-[11px] text-muted">{p.n} —</span>
+          <h3 class="mt-4 text-[22px] tracking-tight font-light leading-tight">{p.title}</h3>
+          <p class="mt-4 text-[14px] text-ink/70 leading-relaxed">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRODUCT POSITIONING -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <div class="flex justify-between items-baseline">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">
+        Product positioning crafted by our PMMs — tested on your ICP.
+      </h2>
+      <a href="/services/product-positioning" class="font-mono text-[11px] tracking-[0.15em] text-muted hover:text-ink whitespace-nowrap ml-4">— LEARN MORE</a>
+    </div>
+    <p class="mt-6 max-w-[820px] text-[16px] leading-relaxed text-ink/80">
+      Ensuring your product positioning compels the right audience to action in this 3 week &amp; 5 phased intensive workshop.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {positioningCards.map((c) => (
+        <div class="border border-line p-8 min-h-[280px] flex flex-col justify-center text-center rounded-sm">
+          <h3 class="text-[22px] tracking-tight font-light">{c.title}</h3>
+          <p class="mt-3 text-[14px] text-ink/70">{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

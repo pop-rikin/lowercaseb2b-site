@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmailCapture from "../../components/EmailCapture.astro";
+import LogoStrip from "../../components/LogoStrip.astro";
+
+const stats = [
+  { n: "2-5x", label: "Monthly Content Production" },
+  { n: "1M+", label: "Search & LLM Visits/Mo Managed" },
+  { n: "10x", label: "Organic Keywords" },
+];
+
+const phases = [
+  { title: "Knowledge Base", body: "We build a single source-of-truth that powers and refines all future content. Designed for collaboration and to be increasingly intelligent as we continuously intake more information." },
+  { title: "Audit & Strategy", body: "We don't believe in random acts of content. Instead, we create the most complete SEO audit. Identify your content opportunity, benchmark competitor content investments, and design a 6+ month content roadmap." },
+  { title: "Architecture", body: "Pretty websites suck. We optimize your site for search and LLM crawlers by re-architecting your sitemap, key UX components, and internal-linking strategy." },
+  { title: "Execution", body: "High quality and high volume content creation by combining expert editors with powerful AI workflows. We start with strategy & content creation all the way through publishing on your CMS of choice." },
+  { title: "Refinement", body: "Monthly SEO audits to identify opportunities for improved rankings and increased organic traffic with both new and optimized content." },
+];
+
+const customized = ["Programmatic Content","Case Studies & Lead Magnets","Link Building","Newsletters","Technical SEO","Social Channel Management"];
+const howWeWork = ["Flexible Terms","Dedicated Strategist","B2B Experienced Editors","Slack Channel","Notion Project Trackers","Weekly/Bi-Weekly Stand Ups"];
+
+const testimonials = [
+  { quote: "Rikin and the lowercase team are insanely good at SEO. They completely wowed us — so much so that we've started working with lowercase instead of our previous provider.", who: "Monty Ngan, Cofounder of Pearl Talent" },
+  { quote: "It feels like you actually understand our business - we've worked with many agencies in the past and that is rare.", who: "Dan Pantelo, Founder & CEO of Marpipe" },
+  { quote: "You can tell the lowercase team is built differently. They've been in-house at companies in our industry and it shows in their obsession over impact and quality.", who: "Dean Ginsburg, Founder of Winback" },
+  { quote: "When we needed to reposition our entire GTM process, lowercase effortlessly led us through a rebrand and an entirely new site build.", who: "Amit Patel, Founder, Perform" },
+];
+---
+<BaseLayout title="SEO & AEO agency for B2B startups.">
+  <!-- announcement banner -->
+  <div class="border-b border-line px-6 sm:px-12 py-3 font-mono text-[11px] tracking-tight">
+    <span class="text-accent">● NEW</span>
+    <span class="ml-2">lowercase partners with Geostar.ai and Gumshoe.ai to optimize B2B for GEO</span>
+  </div>
+
+  <section class="px-6 sm:px-12 lg:px-20 pt-24 sm:pt-32 pb-24">
+    <h1 class="max-w-[1040px]">
+      SEO &amp; AEO for the AI era
+    </h1>
+    <p class="mt-6 max-w-[680px] text-[16px] leading-relaxed text-ink/80">
+      Combining the best B2B content creators with powerful AI workflows. Driving 1M+ organic visitors per month.
+    </p>
+    <div class="mt-12">
+      <EmailCapture />
+    </div>
+  </section>
+
+  <LogoStrip />
+
+  <!-- evolution -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">Content creation &amp; distribution has evolved.</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">Companies need a methodical content approach designed for search engines and LLM crawlers.</p>
+    <div class="mt-12 flex flex-wrap gap-3">
+      {["GEO","Speech > Text","Case Studies","Video Search","Programmatic Content","AI SERP Features","Lead Magnets"].map((tag) => (
+        <span class="px-4 py-2 border border-line font-mono text-[12px] tracking-tight rounded-sm">{tag}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- engineers -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">We're content engineers.</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">
+      The latest strategies, custom AI agents, and expert human editors delivering authoritative content on brand and at scale.
+    </p>
+  </section>
+
+  <!-- proven success / stats -->
+  <section class="bg-panel text-white px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Proven success.</h2>
+    <p class="mt-3 text-white/70">Proud to boast a 95% customer retention rate.</p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
+      {stats.map((s) => (
+        <div class="bg-panel p-12 min-h-[220px] flex flex-col justify-between">
+          <span class="text-[64px] sm:text-[80px] tracking-[-0.04em] font-light leading-none">{s.n}</span>
+          <span class="font-mono text-[11px] tracking-[0.15em] uppercase text-white/60">{s.label}</span>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 flex justify-center">
+      <a href="https://cal.com/rikin-diwan/lowercase-intro" target="_blank" rel="noreferrer" class="inline-block bg-white text-panel font-mono text-[11px] tracking-[0.15em] uppercase px-8 py-3 rounded-sm">Let's Talk</a>
+    </div>
+  </section>
+
+  <!-- process -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">The process.</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">
+      We bring a product mindset to content creation — custom tooling and systems evolved over numerous engagements with startups in scale mode.
+    </p>
+    <div class="mt-16 space-y-px bg-line border border-line">
+      {phases.map((p, i) => (
+        <div class="bg-bg p-8 grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+          <div>
+            <span class="font-mono text-[11px] text-muted">0{i + 1} —</span>
+            <h3 class="mt-2 text-[22px] tracking-tight font-light">{p.title}</h3>
+          </div>
+          <p class="text-[15px] text-ink/80 leading-relaxed max-w-[720px]">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- pull quote -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <blockquote class="text-[28px] sm:text-[36px] leading-snug font-light tracking-tight max-w-[1040px]">
+      "Many agencies have audited our site before — lowercase's SEO audit and strategy is the best we've ever seen."
+    </blockquote>
+    <p class="mt-6 font-mono text-[11px] tracking-tight text-muted">— Aly Murray, CEO of UPchieve</p>
+  </section>
+
+  <!-- pricing -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Let's get started.</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">Plans and pricing built for startups looking to scale way beyond the PMF stage.</p>
+    <div class="mt-12 border border-line p-8 sm:p-12 max-w-[1040px] rounded-sm">
+      <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
+        <h3 class="text-[24px] tracking-tight font-light max-w-[640px]">SEO &amp; AEO Strategy, Content Creation, &amp; Optimizations</h3>
+        <p class="font-mono text-[14px] tracking-tight">Starting at <span class="text-[24px] font-light">$6,000/mo</span></p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-12">
+        <div>
+          <p class="font-mono text-[11px] tracking-[0.15em] text-muted uppercase">Customized Services</p>
+          <ul class="mt-4 space-y-2 text-[15px] text-ink/80">
+            {customized.map((s) => <li>— {s}</li>)}
+          </ul>
+        </div>
+        <div>
+          <p class="font-mono text-[11px] tracking-[0.15em] text-muted uppercase">How We Work</p>
+          <ul class="mt-4 space-y-2 text-[15px] text-ink/80">
+            {howWeWork.map((s) => <li>— {s}</li>)}
+          </ul>
+        </div>
+      </div>
+      <a href="https://cal.com/rikin-diwan/lowercase-intro" target="_blank" rel="noreferrer" class="mt-10 inline-block bg-panel text-white font-mono text-[11px] tracking-[0.15em] uppercase px-8 py-3 rounded-sm">Let's Talk</a>
+    </div>
+  </section>
+
+  <!-- proof / testimonials -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">The proof.</h2>
+    <p class="mt-3 text-ink/70">A little bit of client love — you'll love us too.</p>
+    <div class="mt-16 grid sm:grid-cols-2 gap-12 max-w-[1280px]">
+      {testimonials.map((t) => (
+        <figure class="space-y-6">
+          <blockquote class="text-[20px] sm:text-[24px] leading-snug font-light tracking-tight">"{t.quote}"</blockquote>
+          <figcaption class="font-mono text-[11px] tracking-tight text-muted">— {t.who}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

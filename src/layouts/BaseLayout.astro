@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
+const { title = "lowercase b2b", description = "SEO, GEO, and web design for startups and scale-ups." } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-bg text-ink antialiased">
+    <Sidebar />
+    <main class="md:pl-[200px] min-h-screen page-enter">
+      <slot />
+      <Footer />
+    </main>
+    <style is:global>
+      @keyframes page-fade-up {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .page-enter > * {
+        animation: page-fade-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .page-enter > *:nth-child(1) { animation-delay: 0ms; }
+      .page-enter > *:nth-child(2) { animation-delay: 80ms; }
+      .page-enter > *:nth-child(3) { animation-delay: 160ms; }
+      .page-enter > *:nth-child(4) { animation-delay: 240ms; }
+      .page-enter > *:nth-child(5) { animation-delay: 320ms; }
+      .page-enter > *:nth-child(n+6) { animation-delay: 400ms; }
+      @media (prefers-reduced-motion: reduce) {
+        .page-enter > * { animation: none; }
+      }
+    </style>
+  </body>
+</html>

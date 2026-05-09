@@ -1,0 +1,29 @@
+URL: https://www.lowercaseb2b.com/clients
+Title: The SEO, content, & web design agency for startups.
+
+HERO:
+- Heading: "Operators, Founders, & Their Investors / Love Lowercase B2B" (two lines)
+- Email capture: Work Email + LET'S TALK button (same as homepage)
+
+CLIENT LIST (heading then service tags):
+- Pearl Talent — SEO | Content Creation | Growth Advisory
+- Marpipe — SEO | Paid Acquisition
+- Winback — Branding | Product Positioning | Framer Design & Development
+- GoFractional — SEO | Content Creation | Paid Acquisition | Growth Advisory
+- Perform — SEO | Webflow Design & Development | Growth Advisory
+- Soona — SEO | Content | Webflow Design & Development
+- Saltbox — Growth Advisory
+- MeshMap — Webflow Design & Development
+- CBTAAA — Webflow Design & Development | SEO
+- Roadio — Webflow Design & Development | Paid Acquisition | Content Creation
+- "And Many More"
+
+WHAT WE DO (same as homepage):
+Heading: "What we do."
+Body: "We're GTM engineers who build growth and content engines for startups doing 7-8 figures in ARR. We build beautiful brands and websites because we're obsessed with beautiful brands and websites. Blame it on our CEO."
+Tiles: SEO / AEO • Content Creation • Product Positioning • Framer & Webflow • Brand Design
+
+FOOTER (same dark panel):
+- "Big Button To Book a Meeting"
+- FRAMER & WEBFLOW DEVELOPMENT | SEO / AI SEO | CONTENT CREATION | PRODUCT POSITIONING
+- lowercase b2b, LLC. Copyright 2025.

@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmailCapture from "../components/EmailCapture.astro";
+import { Icon } from "astro-icon/components";
+
+const clients = [
+  { name: "Pearl Talent", services: "SEO | Content Creation | Growth Advisory" },
+  { name: "Marpipe", services: "SEO | Paid Acquisition" },
+  { name: "Winback", services: "Branding | Product Positioning | Framer Design & Development" },
+  { name: "GoFractional", services: "SEO | Content Creation | Paid Acquisition | Growth Advisory" },
+  { name: "Perform", services: "SEO | Webflow Design & Development | Growth Advisory" },
+  { name: "Soona", services: "SEO | Content | Webflow Design & Development" },
+  { name: "Saltbox", services: "Growth Advisory" },
+  { name: "MeshMap", services: "Webflow Design & Development" },
+  { name: "CBTAAA", services: "Webflow Design & Development | SEO" },
+  { name: "Roadio", services: "Webflow Design & Development | Paid Acquisition | Content Creation" },
+];
+
+const services = [
+  { icon: "ph:magnifying-glass-light", label: "SEO / AEO", href: "/services/seo" },
+  { icon: "ph:chat-circle-text-light", label: "Content Creation", href: "/services/seo" },
+  { icon: "ph:flag-light", label: "Product Positioning", href: "/services/product-positioning" },
+  { icon: "ph:browsers-light", label: "Framer & Webflow", href: "/services/web-design" },
+  { icon: "ph:cube-light", label: "Brand Design", href: "/services/web-design" },
+];
+---
+<BaseLayout title="The SEO, content, & web design agency for startups.">
+  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-24">
+    <h1 class="max-w-[1040px]">
+      Operators, Founders, &amp; Their Investors<br />Love Lowercase B2B
+    </h1>
+    <div class="mt-12">
+      <EmailCapture />
+    </div>
+  </section>
+
+  <section class="px-6 sm:px-12 lg:px-20 py-24">
+    <ul class="divide-y divide-line">
+      {clients.map((c) => (
+        <li class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-8 gap-2">
+          <span class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">{c.name}</span>
+          <span class="font-mono text-[11px] tracking-tight text-muted">{c.services}</span>
+        </li>
+      ))}
+      <li class="py-8">
+        <span class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light text-muted">And Many More</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">What we do.</h2>
+    <p class="mt-6 max-w-[920px] text-[16px] leading-relaxed">
+      We're GTM engineers who build growth and content engines for startups doing 7-8 figures in ARR. We build beautiful brands and websites because we're obsessed with beautiful brands and websites. Blame it on our CEO.
+    </p>
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {services.map((s) => (
+        <a href={s.href} class="aspect-[5/3] border border-line flex items-center px-8 hover:border-ink transition rounded-sm">
+          <Icon name={s.icon} class="text-ink mr-4" width={22} height={22} />
+          <span class="text-[20px] tracking-tight">{s.label}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

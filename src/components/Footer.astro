@@ -1,0 +1,19 @@
+---
+const { ctaHref = "https://cal.com/rikin-diwan/lowercase-intro", ctaLabel = "Big Button To Book a Meeting" } = Astro.props;
+---
+<section id="book" class="bg-panel text-white">
+  <div class="px-6 sm:px-12 py-32 sm:py-48 flex flex-col items-center">
+    <a
+      href={ctaHref}
+      class="block w-full max-w-[640px] text-center font-mono text-[18px] sm:text-[22px] tracking-tight border border-white/30 rounded-full py-8 hover:bg-white hover:text-panel transition"
+    >
+      {ctaLabel}
+    </a>
+    <p class="mt-12 font-mono text-[11px] tracking-[0.15em] text-white/60">
+      <span class="text-accent">●</span> FRAMER &amp; WEBFLOW DEVELOPMENT  |  SEO / AI SEO  |  CONTENT CREATION  |  PRODUCT POSITIONING
+    </p>
+    <p class="mt-32 font-mono text-[11px] text-white/40">
+      lowercase b2b, LLC. Copyright {new Date().getFullYear()}.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+{
+  "name": "lowercase-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.1.0",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/shrikhand": "^5.2.8",
+    "@iconify-json/ph": "^1.2.2",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.0.0",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.0.0"
+  }
+}

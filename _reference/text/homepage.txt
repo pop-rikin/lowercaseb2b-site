@@ -1,0 +1,88 @@
+URL: https://www.lowercaseb2b.com/
+Title: SEO, GEO, and web design for startups and scale-ups.
+
+DESIGN TOKENS:
+- Background: rgb(252, 252, 250) / #FCFCFA
+- Text color: rgb(0, 0, 0) / #000
+- H1 font: Geist, "Geist Placeholder", sans-serif (weight 300, 40px @ 1456w)
+- Logo: italic — "lowercase" black + "b2b" orange
+- Built on: Framer
+- Page height: 7631px
+
+NAV (left sidebar, vertical):
+- Logo: lowercaseb2b
+- Services
+- Work
+- Writing
+- Connect
+- Let's Talk (CTA at bottom of sidebar)
+
+HERO:
+- Headline: "SEO, GEO, and web design for startups and scale-ups."
+- Subline (with orange dot): STRATEGY | CONTENT PRODUCTION | DISTRIBUTION | FRAMER & WEBFLOW DEVELOPMENT | BRANDING & POSITIONING
+- Email capture: "Work Email" label, placeholder "emma@email.com", dark "LET'S TALK" button
+
+LOGO STRIP:
+"OPERATORS, FOUNDERS, & THEIR VCs LOVE LOWERCASE"
+marpipe, soona, GoFractional, ROADIO, CBTAA, Winback, MeshMap, Rings, pearl talent, UPchieve, perform, airpost, saltbox
+
+TESTIMONIALS (carousel, 4 unique repeated):
+1. "Rikin and the lowercase team are insanely good at SEO. They completely wowed us — so much so that we've started working with lowercase instead of our previous provider."
+   — Monty Ngan, Cofounder of Pearl Talent
+2. "It feels like you actually understand our business - we've worked with many agencies in the past and that is rare."
+   — Dan Pantelo, Founder & CEO of Marpipe
+3. "You can tell the lowercase team is built differently. They've been in-house at companies in our industry and it shows in their obsession over impact and quality."
+   — Dean Ginsburg, Founder of Winback
+4. "When we needed to reposition our entire GTM process, lowercase effortlessly led us through a rebrand and an entirely new site build."
+   — Amit Patel, Founder, Perform
+
+OUR WORK SECTION:
+Heading: "Our work."
+Cards:
+- WINBACK • LTV FOR ECOMM — WEB DESIGN • BRANDING • POSITIONING
+- PERFORM • NEARSHORE STAFFING — WEB DESIGN • SEO • BRANDING • POSITIONING
+- ROADIO • AI CAMERAS FOR EBIKES — BRAND • WEBFLOW • ECOMM INTEGRATION • CONTENT
+- MARPIPE • BEHAVIORAL ANALYTICS FOR ECOMM — SEO • PAID ACQUISITION
+- GO FRACTIONAL • FRACTIONAL RECRUITING PLATFORM — SEO • CONTENT
+- MESHMAP • GAMES & EXPERIENCES FOR AR — FRAMER WEB DESIGN
+- PEARL TALENT • REMOTE STAFFING — SEO • CONTENT
+
+WHAT WE DO:
+Heading: "What we do."
+Body: "We're GTM engineers who build growth and content engines for startups doing 7-8 figures in ARR. We build beautiful brands and websites because we're obsessed with beautiful brands and websites. Blame it on our CEO."
+Service tiles: SEO / AEO • Content Creation • Product Positioning • Framer & Webflow • Brand Design
+
+HERITAGE:
+Heading: "Decades of doing — but never nostalgic."
+Body: "We've been in-house marketing leaders at many companies you've heard of (and many early stage start ups too). But we're more excited about what's next and are always first to venture forward."
+
+CONTENT & SEO:
+Heading: "Content & SEO for the AI era."
+Sub: "— LEARN MORE"
+Body: "Architecting sites for search and LLMs. Combining the best B2B writers with powerful AI workflows. That's how we drive 1M+ organic visitors to clients each month."
+1 — Custom knowledge base + content engine. We build a knowledge base specific to your brand to create unique & brand consistent content at scale.
+2 — Expert editors-in-the-loop. Our writers have extensive experience creating B2B content that's optimized for search, engaging, and authoritative.
+3 — Frontier SEO and AIO strategies. We're at the forefront of optimizing for visibility in LLMs with partnerships across top emerging platforms.
+CTA: Let's Talk
+
+WEB DESIGN:
+Heading: "Inspired sites built for growth."
+Sub: "— LEARN MORE"
+Body: "Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all."
+1 — Site architecture first. We optimize your site structure based on a deep knowledge of how crawlers view content on the web.
+2 — Product & sales led CRO. Signups, demos scheduled, leads captured, meetings booked — we know what it means to grow B2B.
+3 — Framer and Webflow experts. We're really, really good at Framer and Webflow. Build from scratch or scale what you already have.
+4 — B2B integrations & partners. From Attio to Zoho Forms - and Hubspot too - we're experts at integrating your site with your entire stack.
+
+PRODUCT POSITIONING:
+Heading: "Product positioning crafted by our PMMs — tested on your ICP."
+Sub: "— LEARN MORE"
+Body: "Ensuring your product positioning compels the right audience to action in this 3 week & 5 phased intensive workshop."
+- ICP selection — Navigate the most difficult task — choosing where to start.
+- Memorable heroes — Find clarity & differentiation in a sea of sameness.
+- Pricing & packaging — Simplify selection and minimize the barriers to purchase.
+CTA: Big Button To Book a Meeting
+
+FOOTER:
+Service links: FRAMER & WEBFLOW DEVELOPMENT | SEO / AI SEO | CONTENT CREATION | PRODUCT POSITIONING
+Copyright: lowercase b2b, LLC. Copyright 2025.

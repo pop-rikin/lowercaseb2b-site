@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmailCapture from "../../components/EmailCapture.astro";
+import LogoStrip from "../../components/LogoStrip.astro";
+
+const work = [
+  { name: "WINBACK", category: "LTV FOR ECOMM", services: "WEB DESIGN • BRANDING • POSITIONING" },
+  { name: "PERFORM", category: "NEARSHORE STAFFING", services: "WEB DESIGN • SEO • BRANDING • POSITIONING" },
+  { name: "ROADIO", category: "AI CAMERAS FOR EBIKES", services: "BRAND • WEBFLOW • ECOMM INTEGRATION • CONTENT" },
+  { name: "MARPIPE", category: "BEHAVIORAL ANALYTICS FOR ECOMM", services: "SEO • PAID ACQUISITION" },
+  { name: "GO FRACTIONAL", category: "FRACTIONAL RECRUITING PLATFORM", services: "SEO • CONTENT" },
+  { name: "MESHMAP", category: "GAMES & EXPERIENCES FOR AR", services: "FRAMER WEB DESIGN" },
+  { name: "PEARL TALENT", category: "REMOTE STAFFING", services: "SEO • CONTENT" },
+];
+
+const points = [
+  { n: 1, title: "Site architecture first.", body: "We optimize your site structure based on a deep knowledge of how crawlers view content on the web." },
+  { n: 2, title: "Product & sales led CRO.", body: "Signups, demos scheduled, leads captured, meetings booked — we know what it means to grow B2B." },
+  { n: 3, title: "Framer and Webflow experts.", body: "Certified partners and experts in the two leading platforms for scalable content driven site builders." },
+  { n: 4, title: "Integrations & attribution.", body: "From CRMs to custom event setup and attribution for analytics and ad platforms — we'll make it work." },
+];
+---
+<BaseLayout title="The Framer & Webflow agency for early stage B2B startups">
+  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-24">
+    <h1 class="max-w-[1040px]">
+      Inspired sites built for B2B growth
+    </h1>
+    <p class="mt-6 max-w-[820px] text-[16px] leading-relaxed text-ink/80">
+      Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all.
+    </p>
+    <div class="mt-12"><EmailCapture /></div>
+  </section>
+
+  <LogoStrip />
+
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light mb-12">Our work.</h2>
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {work.map((w) => (
+        <article class="aspect-[4/3] bg-panel text-white p-6 flex flex-col justify-between rounded-sm hover:opacity-90 transition">
+          <header class="font-mono text-[11px] tracking-tight">
+            <span class="font-bold">{w.name}</span>  •  {w.category}
+          </header>
+          <footer class="font-mono text-[10px] tracking-[0.1em] text-white/60">{w.services}</footer>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">What We Do</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">
+      Framer and Webflow experts equally obsessed with creative and conversions. Surprise — you can have it all.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
+      {points.map((p) => (
+        <div class="bg-bg p-8 min-h-[260px]">
+          <span class="font-mono text-[11px] text-muted">{p.n} —</span>
+          <h3 class="mt-4 text-[22px] tracking-tight font-light leading-tight">{p.title}</h3>
+          <p class="mt-4 text-[14px] text-ink/70 leading-relaxed">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

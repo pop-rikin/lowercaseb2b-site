@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmailCapture from "../../components/EmailCapture.astro";
+import LogoStrip from "../../components/LogoStrip.astro";
+
+const cards = [
+  { title: "ICP selection", body: "Navigate the most difficult task — choosing where to start." },
+  { title: "Memorable heroes", body: "Find clarity & differentiation in a sea of sameness." },
+  { title: "Pricing & packaging", body: "Minimize the cognitive load - remove the barriers to purchase." },
+];
+
+const questions = [
+  { n: 1, q: "What is it?" },
+  { n: 2, q: "Who is it for?" },
+  { n: 3, q: "What makes it different?" },
+];
+
+const phases = [
+  { title: "Discovery", body: "We dive into your product, pricing, GTM motion, customer insights, and competitive context. This foundation helps us understand your unique opportunity and what sets you apart." },
+  { title: "Segmentation", body: "We define the key buyer personas, their pain points, and what truly drives their decisions. This ensures your messaging speaks directly to the right audiences, not everyone at once." },
+  { title: "Wireframing", body: "We translate your positioning into a homepage wireframe that tells your story clearly and persuasively. Every section earns its place." },
+  { title: "ICP Testing", body: "We test your messaging and homepage wireframe with individuals who match your ideal customer profile. We gather what resonates, what confuses, and what needs refinement — before you go live." },
+];
+---
+<BaseLayout title="The Product Positioning Agency for B2B startups">
+  <!-- 3 second opener -->
+  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-32 flex flex-col items-center text-center">
+    <span class="text-[120px] sm:text-[180px] tracking-[-0.04em] font-light leading-none">3</span>
+    <p class="mt-6 font-mono text-[12px] tracking-[0.15em] uppercase text-muted">Three seconds</p>
+    <p class="mt-4 max-w-[420px] text-ink/70">The average time before someone decides to scroll or leave your hero section.</p>
+  </section>
+
+  <!-- HERO -->
+  <section class="px-6 sm:px-12 lg:px-20 py-24">
+    <h1 class="max-w-[1040px]">
+      Product positioning crafted by our PMMs — tested on your ICP.
+    </h1>
+    <p class="mt-6 max-w-[820px] text-ink/80">A 3 week, 5 phase intensive to craft messaging that compels the right audience to action.</p>
+    <div class="mt-12"><EmailCapture /></div>
+  </section>
+
+  <LogoStrip />
+
+  <!-- toughest questions -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">Solving for the toughest questions.</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">
+      Your positioning isn't a future promise or a lofty pitch — it's the story that makes your product a compelling solution today.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {cards.map((c) => (
+        <div class="border border-line p-8 min-h-[240px] rounded-sm">
+          <h3 class="text-[22px] tracking-tight font-light">{c.title}</h3>
+          <p class="mt-3 text-[14px] text-ink/70">{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3 second rule -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">Does your hero pass the 3 second rule?</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">
+      The average visitor spends just three seconds on your hero before they decide to click, scroll, or leave. Rule of thumb — answer two of the following three questions in that time.
+    </p>
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-line border border-line">
+      {questions.map((q) => (
+        <div class="bg-bg p-10 min-h-[200px]">
+          <span class="font-mono text-[11px] text-muted">{q.n} —</span>
+          <p class="mt-4 text-[26px] tracking-tight font-light">{q.q}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 max-w-[820px] text-ink/70 text-[15px] italic">
+      Why two? Answer just one and you're being too cute. Answer all three and you're overestimating the average visitor.
+    </p>
+  </section>
+
+  <!-- PMMs -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <p class="font-mono text-[11px] tracking-[0.15em] text-accent uppercase">● Decades of experience</p>
+    <h2 class="mt-4 text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">Crafted by proven PMMs — tested with real buyers</h2>
+    <p class="mt-6 max-w-[820px] text-ink/80">We test our messaging because we're experienced enough to know we have to.</p>
+  </section>
+
+  <!-- process -->
+  <section class="bg-panel text-white px-6 sm:px-12 lg:px-20 py-32">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">The process.</h2>
+    <p class="mt-6 max-w-[820px] text-white/70">
+      We bring a product mindset to content creation — custom tooling and systems evolved over numerous engagements with startups in scale mode.
+    </p>
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+      {phases.map((p, i) => (
+        <div class="bg-panel p-10 min-h-[280px]">
+          <span class="font-mono text-[11px] text-white/60">0{i + 1} —</span>
+          <h3 class="mt-4 text-[24px] tracking-tight font-light">{p.title}</h3>
+          <p class="mt-4 text-[14px] text-white/70 leading-relaxed">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

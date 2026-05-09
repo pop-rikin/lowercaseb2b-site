@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource/shrikhand";
+
+@theme {
+  --color-bg: #fcfcfa;
+  --color-ink: #000000;
+  --color-accent: #ff6d12;
+  --color-muted: #8a8a85;
+  --color-line: #e7e7e2;
+  --color-panel: #292929;
+  --color-button: #404040;
+
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-display: "Shrikhand", serif;
+}
+
+h1 {
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #292929;
+}
+
+button:not(:disabled), [role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.dot-grid > span {
+  transition: background-color 200ms ease-out;
+}
+.dot-grid > span:nth-child(1) { transition-delay: 0ms; }
+.dot-grid > span:nth-child(2) { transition-delay: 40ms; }
+.dot-grid > span:nth-child(3) { transition-delay: 80ms; }
+.dot-grid > span:nth-child(4) { transition-delay: 40ms; }
+.dot-grid > span:nth-child(5) { transition-delay: 80ms; }
+.dot-grid > span:nth-child(6) { transition-delay: 120ms; }
+.dot-grid > span:nth-child(7) { transition-delay: 80ms; }
+.dot-grid > span:nth-child(8) { transition-delay: 120ms; }
+.dot-grid > span:nth-child(9) { transition-delay: 160ms; }
+:where(button, a):hover > .dot-grid > span:not(.bg-transparent),
+:where(button, a):hover .dot-grid > span:not(.bg-transparent) {
+  background-color: var(--color-accent);
+}
