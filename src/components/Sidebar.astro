@@ -21,36 +21,46 @@ const nav = [
 
 const showSubnav = pathname.startsWith("/services/");
 ---
-<aside class="fixed inset-y-0 left-0 z-30 hidden md:flex w-[200px] flex-col border-r border-[#f0f0ec] bg-bg px-5 py-6">
+<aside transition:persist="sidebar" class="fixed inset-y-0 left-0 z-30 hidden md:flex w-[200px] flex-col border-r border-[#f0f0ec] bg-bg px-5 py-6" data-pathname={pathname}>
   <Logo />
   <nav class="flex-1 flex flex-col justify-center font-mono text-[13px] tracking-tight space-y-3">
     {nav.map((item) => (
       <div>
         <a
           href={item.href}
+          data-href={item.href}
           target={item.external ? "_blank" : undefined}
           rel={item.external ? "noreferrer" : undefined}
           class:list={[
-            "block py-1 transition",
+            "nav-link block py-1 transition",
             isActive(item.href) ? "text-accent" : "text-[#404040] hover:text-ink",
           ]}
         >
           {item.label}
         </a>
-        {item.children && showSubnav && (
-          <div class="subnav mt-1 ml-3 space-y-1 border-l border-line pl-3 overflow-hidden">
-            {item.children.map((sub, i) => (
-              <a
-                href={sub.href}
-                style={`--i:${i}`}
-                class:list={[
-                  "subnav-item block py-1 text-[12px]",
-                  pathname === sub.href ? "text-accent" : "text-[#404040] hover:text-ink",
-                ]}
-              >
-                {sub.label}
-              </a>
-            ))}
+        {item.children && (
+          <div
+            class="subnav-wrap overflow-hidden transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] grid"
+            data-parent="/services/"
+            style={pathname.startsWith("/services/") ? "grid-template-rows:1fr;opacity:1" : "grid-template-rows:0fr;opacity:0"}
+          >
+            <div class="min-h-0">
+              <div class="subnav mt-1 ml-3 space-y-1 border-l border-line pl-3">
+                {item.children.map((sub, i) => (
+                  <a
+                    href={sub.href}
+                    data-href={sub.href}
+                    style={`--i:${i}`}
+                    class:list={[
+                      "subnav-item nav-link block py-1 text-[12px]",
+                      pathname === sub.href ? "text-accent" : "text-[#404040] hover:text-ink",
+                    ]}
+                  >
+                    {sub.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -88,7 +98,7 @@ const showSubnav = pathname.startsWith("/services/");
 
 </style>
 
-<header class="md:hidden sticky top-0 z-40 flex items-center justify-between px-5 py-4 border-b border-[#f0f0ec] bg-bg">
+<header transition:persist="mobile-header" class="md:hidden sticky top-0 z-40 flex items-center justify-between px-5 py-4 border-b border-[#f0f0ec] bg-bg">
   <Logo />
   <div class="flex items-center gap-3">
     <a href="https://cal.com/rikin-diwan/lowercase-intro" target="_blank" rel="noreferrer" class="font-mono text-[11px] tracking-[0.15em] uppercase bg-accent text-white px-4 py-2 rounded-sm">Let's Talk</a>
@@ -168,24 +178,47 @@ const showSubnav = pathname.startsWith("/services/");
 </div>
 
 <script>
-  const menu = document.querySelector<HTMLElement>(".mobile-menu");
-  const btn = document.querySelector<HTMLButtonElement>(".mobile-menu-btn");
-  const closeBtn = document.querySelector<HTMLButtonElement>(".mobile-menu-close");
-  const open = () => {
+  const wireMobileMenu = () => {
+    const menu = document.querySelector<HTMLElement>(".mobile-menu");
+    const btn = document.querySelector<HTMLButtonElement>(".mobile-menu-btn");
+    const closeBtn = document.querySelector<HTMLButtonElement>(".mobile-menu-close");
     if (!menu || !btn) return;
-    menu.classList.remove("hidden");
-    requestAnimationFrame(() => menu.classList.remove("opacity-0"));
-    btn.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
+    const open = () => {
+      menu.classList.remove("hidden");
+      requestAnimationFrame(() => menu.classList.remove("opacity-0"));
+      btn.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    };
+    const close = () => {
+      menu.classList.add("opacity-0");
+      btn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      setTimeout(() => menu.classList.add("hidden"), 300);
+    };
+    btn.addEventListener("click", open);
+    closeBtn?.addEventListener("click", close);
+    menu.querySelectorAll<HTMLAnchorElement>("a").forEach((a) => a.addEventListener("click", close));
   };
-  const close = () => {
-    if (!menu || !btn) return;
-    menu.classList.add("opacity-0");
-    btn.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-    setTimeout(() => menu.classList.add("hidden"), 300);
+
+  const syncSidebar = () => {
+    const path = window.location.pathname;
+    document.querySelectorAll<HTMLElement>("aside [data-href], aside [data-href] *").forEach(() => {});
+    document.querySelectorAll<HTMLAnchorElement>(".nav-link").forEach((link) => {
+      const href = link.dataset.href || "";
+      const isSub = link.classList.contains("subnav-item");
+      const active = isSub ? path === href : (href === "/" ? path === "/" : path.startsWith(href));
+      link.classList.toggle("text-accent", active);
+      link.classList.toggle("text-[#404040]", !active);
+    });
+    document.querySelectorAll<HTMLElement>(".subnav-wrap").forEach((wrap) => {
+      const parent = wrap.dataset.parent || "";
+      const open = path.startsWith(parent);
+      wrap.style.gridTemplateRows = open ? "1fr" : "0fr";
+      wrap.style.opacity = open ? "1" : "0";
+    });
   };
-  btn?.addEventListener("click", open);
-  closeBtn?.addEventListener("click", close);
-  menu?.querySelectorAll<HTMLAnchorElement>("a").forEach((a) => a.addEventListener("click", close));
+
+  wireMobileMenu();
+  syncSidebar();
+  document.addEventListener("astro:after-swap", syncSidebar);
 </script>
