@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 const { title = "lowercase b2b", description = "SEO, GEO, and web design for startups and scale-ups." } = Astro.props;
+const branch = process.env.CF_PAGES_BRANCH || process.env.WORKERS_CI_BRANCH || process.env.CI_COMMIT_REF_NAME || "main";
+const isProduction = branch === "main";
 ---
 <!doctype html>
 <html lang="en">
@@ -11,8 +13,21 @@ const { title = "lowercase b2b", description = "SEO, GEO, and web design for sta
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {!isProduction && <meta name="robots" content="noindex,nofollow" />}
     <title>{title}</title>
     <ClientRouter />
+    <script is:inline>
+      (function () {
+        var host = location.hostname;
+        var isProdHost = host === "lowercaseb2b.com" || host === "www.lowercaseb2b.com";
+        if (!isProdHost && !document.querySelector('meta[name="robots"][content*="noindex"]')) {
+          var m = document.createElement("meta");
+          m.name = "robots";
+          m.content = "noindex,nofollow";
+          document.head.appendChild(m);
+        }
+      })();
+    </script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1PM2RV83WQ"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
