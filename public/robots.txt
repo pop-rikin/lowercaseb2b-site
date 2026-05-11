@@ -101,4 +101,4 @@ Allow: /
 User-agent: Kangaroo Bot
 Allow: /
 
-Sitemap: https://lowercaseb2b.com/sitemap-index.xml
+Sitemap: https://www.lowercaseb2b.com/sitemap-index.xml

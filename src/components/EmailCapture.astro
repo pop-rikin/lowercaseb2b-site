@@ -1,11 +1,12 @@
 ---
-const { label = "Work Email", placeholder = "emma@email.com" } = Astro.props;
+const {
+  label = "Work Email",
+  placeholder = "emma@email.com",
+  source = Astro.url.pathname,
+  calLink = "https://cal.com/rikin-diwan/lowercase-intro",
+} = Astro.props;
 ---
-<form
-  method="post"
-  action="#book"
-  class="max-w-[480px] w-full"
->
+<form class="email-capture max-w-[480px] w-full" data-source={source} data-cal={calLink}>
   <label for="work-email" class="block font-mono text-[11px] tracking-tight text-muted mb-2">{label}</label>
   <div class="flex flex-col sm:flex-row gap-2">
     <input
@@ -14,13 +15,50 @@ const { label = "Work Email", placeholder = "emma@email.com" } = Astro.props;
       name="email"
       required
       placeholder={placeholder}
-      class="flex-1 border border-line bg-bg px-4 py-3 text-[14px] focus:outline-none focus:border-ink rounded-sm"
+      autocomplete="email"
+      class="flex-1 border border-line bg-bg px-4 py-3 text-[16px] sm:text-[14px] focus:outline-none focus:border-ink rounded-sm"
     />
     <button
       type="submit"
-      class="font-mono text-[11px] tracking-[0.15em] uppercase bg-button text-white px-6 py-3 rounded-sm hover:opacity-90 transition"
+      class="font-mono text-[11px] tracking-[0.15em] uppercase bg-button text-white px-6 py-3 rounded-sm hover:opacity-90 transition disabled:opacity-60"
     >
       Let's Talk
     </button>
   </div>
 </form>
+
+<script>
+  const ENDPOINT = "https://script.google.com/a/macros/lowercaseb2b.com/s/AKfycbwRJ5_s6DdiF5HZQ98vb3zP94pNyx9u--R4qvjjUHNcnAnVZGYJ6Fn8C4HnjXzTaz7Qjg/exec";
+
+  document.querySelectorAll<HTMLFormElement>("form.email-capture").forEach((form) => {
+    if ((form as any).__bound) return;
+    (form as any).__bound = true;
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = form.querySelector<HTMLInputElement>('input[name="email"]')!;
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const email = input.value.trim();
+      const cal = form.dataset.cal || "https://cal.com/rikin-diwan/lowercase-intro";
+      if (!email) return;
+      button.disabled = true;
+      button.textContent = "Sending…";
+      try {
+        await fetch(ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            email,
+            source: form.dataset.source || location.pathname,
+            referrer: document.referrer || "",
+            ts: new Date().toISOString(),
+          }).toString(),
+        });
+      } catch (err) {
+        console.warn("Lead capture forward failed", err);
+      } finally {
+        window.location.href = cal;
+      }
+    });
+  });
+</script>

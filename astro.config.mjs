@@ -4,7 +4,7 @@ import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://lowercaseb2b.com",
+  site: "https://www.lowercaseb2b.com",
   integrations: [icon({ include: { ph: ["*"] } }), sitemap()],
   vite: { plugins: [tailwindcss()] },
 });
