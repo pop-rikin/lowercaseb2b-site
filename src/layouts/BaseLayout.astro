@@ -13,6 +13,20 @@ const { title = "lowercase b2b", description = "SEO, GEO, and web design for sta
     <meta name="description" content={description} />
     <title>{title}</title>
     <ClientRouter />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1PM2RV83WQ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1PM2RV83WQ');
+      document.addEventListener('astro:page-load', () => {
+        gtag('event', 'page_view', {
+          page_path: location.pathname + location.search,
+          page_location: location.href,
+          page_title: document.title,
+        });
+      });
+    </script>
   </head>
   <body class="bg-bg text-ink antialiased">
     <Sidebar />

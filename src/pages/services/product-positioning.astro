@@ -23,15 +23,19 @@ const phases = [
 ];
 ---
 <BaseLayout title="The Product Positioning Agency for B2B startups">
-  <!-- 3 second opener -->
-  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-32 flex flex-col items-center text-center">
-    <span class="text-[120px] sm:text-[180px] tracking-[-0.04em] font-light leading-none">3</span>
+  <!-- 3-2-1 countdown overlay -->
+  <section id="countdown" class="fixed inset-y-0 right-0 left-0 md:left-[200px] z-40 bg-bg flex flex-col items-center justify-center text-center px-6">
+    <span id="countdown-num" class="block text-[180px] sm:text-[260px] tracking-[-0.04em] font-light leading-none">3</span>
     <p class="mt-6 font-mono text-[12px] tracking-[0.15em] uppercase text-muted">Three seconds</p>
     <p class="mt-4 max-w-[420px] text-ink/70">The average time before someone decides to scroll or leave your hero section.</p>
+    <div class="mt-10 h-px w-[260px] bg-line overflow-hidden">
+      <div id="countdown-bar" class="h-full bg-accent" style="width:100%; transform-origin:left center;"></div>
+    </div>
   </section>
 
+  <div id="page-body" class="invisible">
   <!-- HERO -->
-  <section class="px-6 sm:px-12 lg:px-20 py-24">
+  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 py-24">
     <h1 class="max-w-[1040px]">
       Product positioning crafted by our PMMs — tested on your ICP.
     </h1>
@@ -99,4 +103,65 @@ const phases = [
       ))}
     </div>
   </section>
+  </div>
+
+  <style>
+    #countdown { transition: opacity 400ms ease; }
+    #countdown.hide { opacity: 0; pointer-events: none; }
+    #countdown-num { transition: opacity 200ms ease, transform 200ms ease; }
+    #countdown-num.swap { opacity: 0; transform: scale(0.9); }
+    #page-body { transition: opacity 500ms ease; opacity: 0; }
+    #page-body.show { visibility: visible; opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      #countdown { display: none; }
+      #page-body { opacity: 1; visibility: visible; }
+    }
+  </style>
+
+  <script>
+    const runCountdown = () => {
+      const countdown = document.getElementById("countdown");
+      const num = document.getElementById("countdown-num");
+      const body = document.getElementById("page-body");
+      const bar = document.getElementById("countdown-bar");
+      if (!countdown || !num || !body) return;
+      countdown.style.display = "";
+      countdown.classList.remove("hide");
+      num.textContent = "3";
+      num.classList.remove("swap");
+      body.classList.remove("show");
+      if (bar) {
+        bar.style.transition = "none";
+        bar.style.width = "100%";
+        void bar.offsetWidth;
+        bar.style.transition = "width 2400ms linear";
+        bar.style.width = "0%";
+      }
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) {
+        countdown.style.display = "none";
+        body.classList.add("show");
+        return;
+      }
+      const steps = ["3", "2", "1"];
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        if (i >= steps.length) {
+          clearInterval(interval);
+          countdown.classList.add("hide");
+          body.classList.add("show");
+          setTimeout(() => { countdown.style.display = "none"; }, 500);
+          return;
+        }
+        num.classList.add("swap");
+        setTimeout(() => {
+          num.textContent = steps[i];
+          num.classList.remove("swap");
+        }, 200);
+      }, 800);
+    };
+    runCountdown();
+    document.addEventListener("astro:page-load", runCountdown);
+  </script>
 </BaseLayout>

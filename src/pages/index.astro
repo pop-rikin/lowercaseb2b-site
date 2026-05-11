@@ -2,35 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EmailCapture from "../components/EmailCapture.astro";
 import LogoStrip from "../components/LogoStrip.astro";
+import WorkSection from "../components/WorkSection.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import montyImg from "../assets/headshots-v2-monty.png";
 import danImg from "../assets/headshots-v2-dan.png";
 import deanImg from "../assets/headshots/dean-ginsburg.png";
 import amitImg from "../assets/headshots/amit-patel.png";
-import marpipeImg from "../assets/work/marpipe.png";
-import pearlTalentImg from "../assets/work/pearl-talent.png";
-import winbackVid from "../assets/work/winback.mp4?url";
-import performVid from "../assets/work/perform.mp4?url";
-import roadioVid from "../assets/work/roadio.mp4?url";
-import gofractionalVid from "../assets/work/gofractional.mp4?url";
-import meshmapVid from "../assets/work/meshmap.mp4?url";
 
 const testimonials = [
   { quote: "Rikin and the lowercase team are insanely good at SEO. They completely wowed us — so much so that we've started working with lowercase instead of our previous provider.", who: "Monty Ngan, Cofounder of Pearl Talent", img: montyImg },
   { quote: "It feels like you actually understand our business - we've worked with many agencies in the past and that is rare.", who: "Dan Pantelo, Founder & CEO of Marpipe", img: danImg },
   { quote: "You can tell the lowercase team is built differently. They've been in-house at companies in our industry and it shows in their obsession over impact and quality.", who: "Dean Ginsburg, Founder of Winback", img: deanImg },
   { quote: "When we needed to reposition our entire GTM process, lowercase effortlessly led us through a rebrand and an entirely new site build.", who: "Amit Patel, Founder, Perform", img: amitImg },
-];
-
-const work = [
-  { name: "WINBACK", category: "LTV FOR ECOMM", services: "WEB DESIGN • BRANDING • POSITIONING", video: winbackVid },
-  { name: "PERFORM", category: "NEARSHORE STAFFING", services: "WEB DESIGN • SEO • BRANDING • POSITIONING", video: performVid },
-  { name: "ROADIO", category: "AI CAMERAS FOR EBIKES", services: "BRAND • WEBFLOW • ECOMM INTEGRATION • CONTENT", video: roadioVid },
-  { name: "MARPIPE", category: "BEHAVIORAL ANALYTICS FOR ECOMM", services: "SEO • PAID ACQUISITION", image: marpipeImg },
-  { name: "GO FRACTIONAL", category: "FRACTIONAL RECRUITING PLATFORM", services: "SEO • CONTENT", video: gofractionalVid },
-  { name: "MESHMAP", category: "GAMES & EXPERIENCES FOR AR", services: "FRAMER WEB DESIGN", video: meshmapVid },
-  { name: "PEARL TALENT", category: "REMOTE STAFFING", services: "SEO • CONTENT", image: pearlTalentImg },
 ];
 
 const services = [
@@ -192,133 +176,7 @@ const positioningCards = [
     });
   </script>
 
-  <!-- OUR WORK -->
-  <section class="work-section px-6 sm:px-12 lg:px-20 py-32" data-count={work.length}>
-    <div class="flex items-end justify-between mb-12 gap-6 flex-wrap">
-      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Our work.</h2>
-      <div class="work-view-toggle inline-flex items-center font-mono text-[11px] tracking-[0.1em] uppercase border border-line rounded-sm overflow-hidden">
-        <button type="button" data-view="carousel" class="work-view-btn px-4 py-2 transition" aria-pressed="true">Carousel</button>
-        <button type="button" data-view="grid" class="work-view-btn px-4 py-2 transition border-l border-line" aria-pressed="false">Grid</button>
-      </div>
-    </div>
-
-    <!-- CAROUSEL VIEW -->
-    <div class="work-carousel mx-auto">
-      <div class="overflow-hidden">
-        <div class="work-track flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-          {work.map((w) => (
-            <div class="work-slide w-full shrink-0 px-2">
-              <article class="relative aspect-[16/9] rounded-sm bg-panel text-white overflow-hidden">
-                <div class="absolute top-14 bottom-14 left-6 right-6 flex items-center justify-center">
-                  {w.video ? (
-                    <video src={w.video} autoplay loop muted playsinline preload="metadata" class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
-                  ) : w.image ? (
-                    <Image src={w.image} alt={w.name} class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
-                  ) : null}
-                </div>
-                <header class="absolute top-5 left-6 right-6 font-mono text-[11px] tracking-tight z-10">
-                  <span class="font-bold">{w.name}</span>  •  {w.category}
-                </header>
-                <footer class="absolute bottom-5 left-6 right-6 font-mono text-[10px] tracking-[0.1em] text-white/80 z-10">{w.services}</footer>
-              </article>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <button type="button" class="work-prev w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition" aria-label="Previous case study">
-          <Icon name="ph:arrow-left-light" class="w-5 h-5" />
-        </button>
-        <div class="flex items-center gap-3">
-          <span class="work-counter font-mono text-[11px] tracking-tight text-muted">
-            01 / {String(work.length).padStart(2, "0")}
-          </span>
-          <div class="work-progress relative h-px w-32 bg-line overflow-hidden">
-            <div class="work-progress-bar absolute inset-y-0 left-0 bg-accent" style="width: 0%"></div>
-          </div>
-        </div>
-        <button type="button" class="work-next w-10 h-10 flex items-center justify-center rounded-full border border-line text-[#404040] hover:text-ink hover:border-ink transition" aria-label="Next case study">
-          <Icon name="ph:arrow-right-light" class="w-5 h-5" />
-        </button>
-      </div>
-    </div>
-
-    <!-- GRID VIEW -->
-    <div class="work-grid hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
-      {work.map((w) => (
-        <article class="relative aspect-[4/3] rounded-sm bg-panel text-white overflow-hidden">
-          <div class="absolute top-12 bottom-12 left-4 right-4 flex items-center justify-center">
-            {w.video ? (
-              <video src={w.video} autoplay loop muted playsinline preload="metadata" class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
-            ) : w.image ? (
-              <Image src={w.image} alt={w.name} class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
-            ) : null}
-          </div>
-          <header class="absolute top-4 left-4 right-4 font-mono text-[11px] tracking-tight z-10">
-            <span class="font-bold">{w.name}</span>  •  {w.category}
-          </header>
-          <footer class="absolute bottom-4 left-4 right-4 font-mono text-[10px] tracking-[0.1em] text-white/80 z-10">{w.services}</footer>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <style>
-    .work-view-btn[aria-pressed="true"] { background: var(--color-panel); color: white; }
-    .work-view-btn[aria-pressed="false"] { color: #404040; }
-    .work-view-btn[aria-pressed="false"]:hover { color: var(--color-ink); }
-  </style>
-
-  <script>
-    document.querySelectorAll<HTMLElement>(".work-section").forEach((root) => {
-      const toggleBtns = root.querySelectorAll<HTMLButtonElement>(".work-view-btn");
-      const carousel = root.querySelector<HTMLElement>(".work-carousel")!;
-      const grid = root.querySelector<HTMLElement>(".work-grid")!;
-      const setView = (view: "carousel" | "grid") => {
-        toggleBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-        carousel.classList.toggle("hidden", view !== "carousel");
-        grid.classList.toggle("hidden", view !== "grid");
-      };
-      toggleBtns.forEach((b) => b.addEventListener("click", () => setView(b.dataset.view as "carousel" | "grid")));
-
-      const track = root.querySelector<HTMLElement>(".work-track")!;
-      const counter = root.querySelector<HTMLElement>(".work-counter")!;
-      const prev = root.querySelector<HTMLButtonElement>(".work-prev")!;
-      const next = root.querySelector<HTMLButtonElement>(".work-next")!;
-      const count = Number(root.dataset.count ?? "0");
-      const progressBar = root.querySelector<HTMLElement>(".work-progress-bar")!;
-      const ROTATE_MS = 4000;
-      let i = 0;
-      const render = () => {
-        track.style.transform = `translateX(-${i * 100}%)`;
-        counter.textContent = `${String(i + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}`;
-      };
-      const resetProgress = () => {
-        progressBar.style.transition = "none";
-        progressBar.style.width = "0%";
-        void progressBar.offsetWidth;
-        progressBar.style.transition = `width ${ROTATE_MS}ms linear`;
-        progressBar.style.width = "100%";
-      };
-      const tick = () => { i = (i + 1) % count; render(); resetProgress(); };
-      let timer = window.setInterval(tick, ROTATE_MS);
-      resetProgress();
-      const restart = () => {
-        window.clearInterval(timer);
-        timer = window.setInterval(tick, ROTATE_MS);
-        resetProgress();
-      };
-      prev.addEventListener("click", () => { i = (i - 1 + count) % count; render(); restart(); });
-      next.addEventListener("click", () => { i = (i + 1) % count; render(); restart(); });
-      carousel.addEventListener("mouseenter", () => {
-        window.clearInterval(timer);
-        const w = getComputedStyle(progressBar).width;
-        progressBar.style.transition = "none";
-        progressBar.style.width = w;
-      });
-      carousel.addEventListener("mouseleave", restart);
-    });
-  </script>
+  <WorkSection />
 
   <!-- WHAT WE DO -->
   <section class="px-6 sm:px-12 lg:px-20 py-32">

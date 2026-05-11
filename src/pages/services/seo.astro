@@ -2,6 +2,23 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EmailCapture from "../../components/EmailCapture.astro";
 import LogoStrip from "../../components/LogoStrip.astro";
+import ContentPipeline from "../../components/ContentPipeline.astro";
+import WorkSection from "../../components/WorkSection.astro";
+import { Icon } from "astro-icon/components";
+
+const evolutionRows = [
+  [
+    { label: "GEO", icon: "ph:robot" },
+    { label: "Speech > Text", icon: "ph:microphone" },
+    { label: "Case Studies", icon: "ph:read-cv-logo" },
+    { label: "Video Search", icon: "ph:play-circle" },
+  ],
+  [
+    { label: "Programmatic Content", icon: "ph:code" },
+    { label: "AI SERP Features", icon: "ph:sparkle" },
+    { label: "Lead Magnets", icon: "ph:magnet" },
+  ],
+];
 
 const stats = [
   { n: "2-5x", label: "Monthly Content Production" },
@@ -17,7 +34,7 @@ const phases = [
   { title: "Refinement", body: "Monthly SEO audits to identify opportunities for improved rankings and increased organic traffic with both new and optimized content." },
 ];
 
-const customized = ["Programmatic Content","Case Studies & Lead Magnets","Link Building","Newsletters","Technical SEO","Social Channel Management"];
+const customized = ["Monthly Content Production","Programmatic Content/Directory Production","Off-page GEO Mentions","Traditional SEO Backlinking","Newsletters","Technical SEO Maintenance","Content & Competitive Audits","SEO Strategy & Optimizations"];
 const howWeWork = ["Flexible Terms","Dedicated Strategist","B2B Experienced Editors","Slack Channel","Notion Project Trackers","Weekly/Bi-Weekly Stand Ups"];
 
 const testimonials = [
@@ -49,12 +66,19 @@ const testimonials = [
   <LogoStrip />
 
   <!-- evolution -->
-  <section class="px-6 sm:px-12 lg:px-20 py-32">
-    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px]">Content creation &amp; distribution has evolved.</h2>
-    <p class="mt-6 max-w-[820px] text-ink/80">Companies need a methodical content approach designed for search engines and LLM crawlers.</p>
-    <div class="mt-12 flex flex-wrap gap-3">
-      {["GEO","Speech > Text","Case Studies","Video Search","Programmatic Content","AI SERP Features","Lead Magnets"].map((tag) => (
-        <span class="px-4 py-2 border border-line font-mono text-[12px] tracking-tight rounded-sm">{tag}</span>
+  <section class="px-6 sm:px-12 lg:px-20 py-32 text-center">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light max-w-[920px] mx-auto">Content creation &amp; distribution has evolved.</h2>
+    <p class="mt-6 max-w-[820px] mx-auto text-ink/80">Companies need a methodical content approach designed for search engines and LLM crawlers.</p>
+    <div class="mt-16 space-y-3 max-w-[1040px] mx-auto">
+      {evolutionRows.map((row) => (
+        <div class="flex flex-wrap justify-center gap-3">
+          {row.map((tag) => (
+            <span class="inline-flex items-center gap-2 px-4 py-2 border border-line font-mono text-[12px] tracking-tight rounded-sm">
+              <Icon name={tag.icon} class="w-4 h-4 text-accent" />
+              {tag.label}
+            </span>
+          ))}
+        </div>
       ))}
     </div>
   </section>
@@ -65,6 +89,9 @@ const testimonials = [
     <p class="mt-6 max-w-[820px] text-ink/80">
       The latest strategies, custom AI agents, and expert human editors delivering authoritative content on brand and at scale.
     </p>
+    <div class="mt-20">
+      <ContentPipeline />
+    </div>
   </section>
 
   <!-- proven success / stats -->
@@ -108,7 +135,52 @@ const testimonials = [
     <blockquote class="text-[28px] sm:text-[36px] leading-snug font-light tracking-tight max-w-[1040px]">
       "Many agencies have audited our site before — lowercase's SEO audit and strategy is the best we've ever seen."
     </blockquote>
-    <p class="mt-6 font-mono text-[11px] tracking-tight text-muted">— Aly Murray, CEO of UPchieve</p>
+    <div class="mt-8 flex items-center gap-3">
+      <img src="/images/aly-murray.png" alt="Aly Murray" width="32" height="32" class="w-8 h-8 rounded-full object-cover" />
+      <p class="font-mono text-[11px] tracking-tight text-muted">Aly Murray, CEO of UPchieve</p>
+    </div>
+  </section>
+
+  <!-- case study highlight -->
+  <section class="px-6 sm:px-12 lg:px-20 py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 border border-line rounded-sm overflow-hidden">
+      <div class="bg-bg p-10 sm:p-12 flex flex-col">
+        <h2 class="text-[28px] sm:text-[36px] leading-[1.15] tracking-[-0.02em] font-light max-w-[520px]">
+          How Marpipe dominated its target keywords and grew organic traffic 5x in 12 months
+        </h2>
+        <p class="mt-6 text-[15px] text-ink/80 leading-relaxed max-w-[560px]">
+          Marpipe is in the business of "Catalog Ads" — so we made it our mission to get them into the top 3 ranking sites for the term. Through a focused SEO and AI-search strategy, we now own the category SERP, with 185 keywords ranking in the top 3 and organic traffic 5x'd in 12 months.
+        </p>
+        <div class="mt-10 grid grid-cols-2 gap-4">
+          <div class="border border-dashed border-line p-6 rounded-sm">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">5x</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">organic traffic growth in 12 months</p>
+          </div>
+          <div class="border border-dashed border-line p-6 rounded-sm">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">6.2K</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">monthly organic visits</p>
+          </div>
+          <div class="border border-dashed border-line p-6 rounded-sm col-span-2">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">$1.1M</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">monthly organic traffic value (Ahrefs equivalent)</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-accent text-white p-6 sm:p-8 flex flex-col">
+        <div class="flex items-center justify-center gap-4">
+          <span class="h-px flex-1 bg-white/40"></span>
+          <img src="/logos/marpipe.svg" alt="Marpipe" class="h-5 w-auto brightness-0 invert" />
+          <span class="h-px flex-1 bg-white/40"></span>
+        </div>
+        <div class="mt-6 relative flex-1 min-h-[320px] rounded-sm overflow-hidden bg-panel border border-white/20">
+          <img src="/images/dan-pantelo-marpipe.png" alt="Marpipe case study" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute bottom-4 left-4 font-mono text-[11px] tracking-tight">
+            <span class="block text-white/70">Founder & CEO — Marpipe</span>
+            <span class="block text-[22px] font-light leading-tight">Dan Pantelo</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- pricing -->
@@ -117,7 +189,7 @@ const testimonials = [
     <p class="mt-6 max-w-[820px] text-ink/80">Plans and pricing built for startups looking to scale way beyond the PMF stage.</p>
     <div class="mt-12 border border-line p-8 sm:p-12 max-w-[1040px] rounded-sm">
       <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
-        <h3 class="text-[24px] tracking-tight font-light max-w-[640px]">SEO &amp; AEO Strategy, Content Creation, &amp; Optimizations</h3>
+        <h3 class="text-[24px] tracking-tight font-light max-w-[640px]">SEO &amp; GEO Strategy, Content Creation, &amp; Optimizations</h3>
         <p class="font-mono text-[14px] tracking-tight">Starting at <span class="text-[24px] font-light">$6,000/mo</span></p>
       </div>
       <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-12">
@@ -138,17 +210,5 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- proof / testimonials -->
-  <section class="px-6 sm:px-12 lg:px-20 py-32">
-    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">The proof.</h2>
-    <p class="mt-3 text-ink/70">A little bit of client love — you'll love us too.</p>
-    <div class="mt-16 grid sm:grid-cols-2 gap-12 max-w-[1280px]">
-      {testimonials.map((t) => (
-        <figure class="space-y-6">
-          <blockquote class="text-[20px] sm:text-[24px] leading-snug font-light tracking-tight">"{t.quote}"</blockquote>
-          <figcaption class="font-mono text-[11px] tracking-tight text-muted">— {t.who}</figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
+  <WorkSection />
 </BaseLayout>

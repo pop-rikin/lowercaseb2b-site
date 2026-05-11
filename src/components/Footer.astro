@@ -5,9 +5,11 @@ const { ctaHref = "https://cal.com/rikin-diwan/lowercase-intro", ctaLabel = "Big
   <div class="px-6 sm:px-12 py-32 sm:py-48 flex flex-col items-center">
     <a
       href={ctaHref}
-      class="block w-full max-w-[640px] text-center font-mono text-[18px] sm:text-[22px] tracking-tight border border-white/30 rounded-full py-8 hover:bg-white hover:text-panel transition"
+      class="group block w-full max-w-[560px] text-center font-mono font-light text-[22px] sm:text-[28px] lg:text-[32px] tracking-[-0.04em] leading-[1.4] border border-white rounded-full py-7 sm:py-9 hover:bg-white hover:text-panel transition"
     >
-      {ctaLabel}
+      <span class="hidden lg:inline">{ctaLabel}</span>
+      <span class="hidden sm:inline lg:hidden">Button To Book a Meeting</span>
+      <span class="sm:hidden">Book a Meeting</span>
     </a>
     <p class="mt-12 font-mono text-[11px] tracking-[0.15em] text-white/60">
       <span class="text-accent">●</span> FRAMER &amp; WEBFLOW DEVELOPMENT  |  SEO / AI SEO  |  CONTENT CREATION  |  PRODUCT POSITIONING

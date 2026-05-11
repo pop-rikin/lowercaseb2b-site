@@ -1,15 +1,72 @@
 ---
 const { label = "OPERATORS, FOUNDERS, & THEIR VCs LOVE LOWERCASE" } = Astro.props;
 const logos = [
-  "marpipe","soona","GoFractional","ROADIO","CBTAA","Winback",
-  "MeshMap","Rings","pearl talent","UPchieve","perform","airpost","saltbox"
+  { name: "Marpipe", src: "/logos/marpipe.svg", h: 22 },
+  { name: "Soona", src: "/logos/soona.svg", h: 36 },
+  { name: "Roadio", src: "/logos/roadio.svg", h: 16 },
+  { name: "CBTAA", src: "/logos/cbtaa.svg", h: 20 },
+  { name: "Winback", src: "/logos/winback.svg", h: 22 },
+  { name: "MeshMap", src: "/logos/meshmap.png", h: 22 },
+  { name: "Pearl Talent", src: "/logos/pearl-talent.png", h: 16 },
+  { name: "Rings", src: "/logos/rings.svg", h: 22 },
+  { name: "UPchieve", src: "/logos/upchieve.png", h: 38 },
+  { name: "Perform", src: "/logos/perform.png", h: 16 },
+  { name: "Airpost", src: "/logos/airpost.svg", h: 26 },
+  { name: "Saltbox", src: "/logos/saltbox.png", h: 22 },
+  { name: "Heatmap", src: "/logos/heatmap.webp", h: 38 },
+  { name: "SideShift", src: "/logos/sideshift.avif", h: 22 },
+  { name: "Andel", src: "/logos/andel.png", h: 20 },
+  { name: "Watertower Ventures", src: "/logos/watertower.png", h: 32 },
 ];
 ---
-<section class="py-16">
-  <p class="text-center font-mono text-[11px] tracking-[0.15em] text-muted mb-8">{label}</p>
-  <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-muted/70">
-    {logos.map((name) => (
-      <span class="font-mono text-[13px] uppercase tracking-tight">{name}</span>
-    ))}
+<section class="py-16 overflow-hidden">
+  <p class="text-center font-mono text-[11px] tracking-[0.15em] text-muted mb-10">{label}</p>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      {[...logos, ...logos].map((logo) => (
+        <div class="logo-item" aria-label={logo.name}>
+          <img src={logo.src} alt={logo.name} loading="lazy" style={`height:${logo.h}px;`} />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .logo-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 50s linear infinite;
+  }
+  .logo-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+  }
+  .logo-item img {
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    filter: brightness(0);
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+  }
+  .logo-item:hover img { opacity: 1; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track { animation: none; }
+  }
+</style>
