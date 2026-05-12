@@ -1,19 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EmailCapture from "../components/EmailCapture.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { caseStudies } from "../data/caseStudies";
 import { Icon } from "astro-icon/components";
 
 const clients = [
-  { name: "Pearl Talent", services: "SEO | Content Creation | Growth Advisory" },
   { name: "Marpipe", services: "SEO | Paid Acquisition" },
-  { name: "Winback", services: "Branding | Product Positioning | Framer Design & Development" },
-  { name: "GoFractional", services: "SEO | Content Creation | Paid Acquisition | Growth Advisory" },
-  { name: "Perform", services: "SEO | Webflow Design & Development | Growth Advisory" },
   { name: "Soona", services: "SEO | Content | Webflow Design & Development" },
-  { name: "Saltbox", services: "Growth Advisory" },
-  { name: "MeshMap", services: "Webflow Design & Development" },
-  { name: "CBTAAA", services: "Webflow Design & Development | SEO" },
   { name: "Roadio", services: "Webflow Design & Development | Paid Acquisition | Content Creation" },
+  { name: "CBTAA", services: "Webflow Design & Development | SEO" },
+  { name: "Winback", services: "Branding | Product Positioning | Framer Design & Development" },
+  { name: "MeshMap", services: "Webflow Design & Development" },
+  { name: "Pearl Talent", services: "SEO | Content Creation | Growth Advisory" },
+  { name: "Rings", services: "Branding | Webflow Design & Development" },
+  { name: "UPchieve", services: "SEO | Content Creation" },
+  { name: "Perform", services: "SEO | Webflow Design & Development | Growth Advisory" },
+  { name: "Airpost", services: "Webflow Design & Development | SEO" },
+  { name: "Saltbox", services: "Growth Advisory" },
+  { name: "Heatmap", services: "SEO | Content Creation" },
+  { name: "SideShift", services: "Webflow Design & Development | Branding" },
+  { name: "Andel", services: "Branding | Product Positioning" },
+  { name: "Watertower Ventures", services: "Growth Advisory" },
 ];
 
 const services = [
@@ -27,14 +35,111 @@ const services = [
 <BaseLayout title="The SEO, content, & web design agency for startups.">
   <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-24">
     <h1 class="max-w-[1040px]">
-      Operators, Founders, &amp; Their Investors<br />Love Lowercase B2B
+      Operators, Founders, &amp; their Investors<br /><Icon name="ph:heart-fill" class="inline-block align-baseline text-accent" width="0.9em" height="0.9em" /> Lowercase B2B
     </h1>
     <div class="mt-12">
       <EmailCapture />
     </div>
   </section>
 
+  <!-- featured case study -->
+  <section class="px-6 sm:px-12 lg:px-20 py-16">
+    <div class="flex items-baseline justify-between mb-8 gap-6 flex-wrap">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Featured case study.</h2>
+      <p class="font-mono text-[11px] tracking-[0.15em] text-muted uppercase">— Marpipe</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 border border-line rounded-sm overflow-hidden">
+      <div class="bg-bg p-10 sm:p-12 flex flex-col">
+        <h3 class="text-[28px] sm:text-[36px] leading-[1.15] tracking-[-0.02em] font-light max-w-[520px]">
+          How Marpipe dominated its target keywords and grew organic traffic 5x in 12 months
+        </h3>
+        <p class="mt-6 text-[15px] text-ink/80 leading-relaxed max-w-[560px]">
+          Marpipe is in the business of "Catalog Ads" — so we made it our mission to get them into the top 3 ranking sites for the term. Through a focused SEO and AI-search strategy, we now own the category SERP, with 185 keywords ranking in the top 3 and organic traffic 5x'd in 12 months.
+        </p>
+        <div class="mt-10 grid grid-cols-2 gap-4">
+          <div class="border border-dashed border-line p-6 rounded-sm">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">5x</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">organic traffic growth in 12 months</p>
+          </div>
+          <div class="border border-dashed border-line p-6 rounded-sm">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">6.2K</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">monthly organic visits</p>
+          </div>
+          <div class="border border-dashed border-line p-6 rounded-sm col-span-2">
+            <p class="text-[28px] sm:text-[32px] tracking-[-0.02em] font-light leading-none">$1.1M</p>
+            <p class="mt-3 font-mono text-[11px] tracking-tight text-muted">monthly organic traffic value (Ahrefs equivalent)</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-accent text-white p-6 sm:p-8 flex flex-col">
+        <div class="flex items-center justify-center gap-4">
+          <span class="h-px flex-1 bg-white/40"></span>
+          <img src="/logos/marpipe.svg" alt="Marpipe" class="h-5 w-auto brightness-0 invert" />
+          <span class="h-px flex-1 bg-white/40"></span>
+        </div>
+        <div class="mt-6 relative flex-1 min-h-[320px] rounded-sm overflow-hidden bg-panel border border-white/20">
+          <img src="/images/dan-pantelo-marpipe.png" alt="Marpipe case study" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute bottom-4 left-4 font-mono text-[11px] tracking-tight">
+            <span class="block text-white/70">Founder & CEO — Marpipe</span>
+            <span class="block text-[22px] font-light leading-tight">Dan Pantelo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study-grid px-6 sm:px-12 lg:px-20 py-16">
+    <div class="flex items-baseline justify-between mb-8 gap-6 flex-wrap">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">More case studies.</h2>
+      <div class="case-filter inline-flex items-center font-mono text-[11px] tracking-[0.1em] uppercase border border-line rounded-sm overflow-hidden">
+        <button type="button" data-filter="all" class="case-filter-btn px-4 py-2 transition" aria-pressed="true">All</button>
+        <button type="button" data-filter="Web Design" class="case-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">Web Design</button>
+        <button type="button" data-filter="SEO / GEO" class="case-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">SEO / GEO</button>
+      </div>
+    </div>
+    <div class="case-grid grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {caseStudies.map((c) => (
+        <CaseStudyCard
+          slug={c.slug}
+          name={c.name}
+          category={c.category}
+          services={c.services}
+          tags={c.tags}
+          media={c.media}
+        />
+      ))}
+    </div>
+    <p class="case-empty hidden mt-12 text-center text-muted font-mono text-[12px] tracking-tight">No case studies match this filter yet.</p>
+  </section>
+
+  <style>
+    .case-filter-btn[aria-pressed="true"] { background: var(--color-panel); color: white; }
+    .case-filter-btn[aria-pressed="false"] { color: #404040; }
+    .case-filter-btn[aria-pressed="false"]:hover { color: var(--color-ink); }
+  </style>
+
+  <script>
+    document.querySelectorAll<HTMLElement>(".case-study-grid").forEach((root) => {
+      const btns = root.querySelectorAll<HTMLButtonElement>(".case-filter-btn");
+      const cards = root.querySelectorAll<HTMLElement>(".case-card");
+      const empty = root.querySelector<HTMLElement>(".case-empty")!;
+      const apply = (filter: string) => {
+        btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
+        let visible = 0;
+        cards.forEach((card) => {
+          const tags = (card.dataset.tags || "").split("|").filter(Boolean);
+          const show = filter === "all" || tags.includes(filter);
+          card.classList.toggle("hidden", !show);
+          if (show) visible++;
+        });
+        empty.classList.toggle("hidden", visible > 0);
+      };
+      btns.forEach((b) => b.addEventListener("click", () => apply(b.dataset.filter || "all")));
+    });
+  </script>
+
   <section class="px-6 sm:px-12 lg:px-20 py-24">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light mb-8">Clients.</h2>
     <ul class="divide-y divide-line">
       {clients.map((c) => (
         <li class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-8 gap-2">

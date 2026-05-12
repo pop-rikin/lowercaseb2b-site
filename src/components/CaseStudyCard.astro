@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import marpipeImg from "../assets/work/marpipe.png";
+import pearlTalentImg from "../assets/work/pearl-talent.png";
+import winbackVid from "../assets/work/winback.mp4?url";
+import performVid from "../assets/work/perform.mp4?url";
+import roadioVid from "../assets/work/roadio.mp4?url";
+import gofractionalVid from "../assets/work/gofractional.mp4?url";
+import meshmapVid from "../assets/work/meshmap.mp4?url";
+
+interface Props {
+  slug: string;
+  name: string;
+  category: string;
+  services: string;
+  tags?: string[];
+  media: "winback" | "perform" | "roadio" | "marpipe" | "gofractional" | "meshmap" | "pearl-talent";
+}
+
+const { slug, name, category, services, tags = [], media } = Astro.props;
+
+const videoMap: Record<string, string> = {
+  winback: winbackVid,
+  perform: performVid,
+  roadio: roadioVid,
+  gofractional: gofractionalVid,
+  meshmap: meshmapVid,
+};
+const imageMap: Record<string, ImageMetadata> = {
+  marpipe: marpipeImg,
+  "pearl-talent": pearlTalentImg,
+};
+
+const video = videoMap[media];
+const image = imageMap[media];
+---
+<a href={`/case-studies/${slug}`} data-tags={tags.join("|")} class="case-card group block border border-line rounded-sm bg-bg overflow-hidden hover:border-[#ffb380] transition">
+  <div class="relative aspect-[16/10] bg-bg border-b border-line overflow-hidden">
+    <div class="absolute inset-6 flex items-center justify-center">
+      {video ? (
+        <video src={video} autoplay loop muted playsinline preload="metadata" class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+      ) : image ? (
+        <Image src={image} alt={name} class="max-w-full max-h-full w-auto h-auto object-contain rounded-sm" />
+      ) : null}
+    </div>
+  </div>
+  <div class="p-5 flex items-baseline justify-between gap-4">
+    <div>
+      <p class="font-mono text-[11px] tracking-tight text-ink">
+        <span class="font-bold">{name}</span>  •  <span class="text-muted">{category}</span>
+      </p>
+      <p class="mt-2 font-mono text-[10px] tracking-[0.1em] text-muted">{services}</p>
+    </div>
+  </div>
+</a>
