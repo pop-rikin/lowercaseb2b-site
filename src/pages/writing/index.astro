@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import { Icon } from "astro-icon/components";
+import { posts, getFeaturedPost, getSecondaryFeatured, formatDate } from "../../data/posts";
+
+const featured = getFeaturedPost();
+const secondary = getSecondaryFeatured(3);
+---
+<BaseLayout title="Writing — lowercase b2b" description="Notes on B2B GTM, SEO, positioning, and the web.">
+  <!-- HERO -->
+  <section class="px-6 sm:px-12 lg:px-20 pt-32 sm:pt-48 pb-16">
+    <p class="font-mono text-[12px] tracking-[0.15em] text-muted uppercase flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>
+      <span>Writing</span>
+    </p>
+    <h1 class="mt-6 max-w-[1040px]">
+      Field notes on B2B GTM, SEO, &amp; the web.
+    </h1>
+    <p class="mt-6 max-w-[820px] text-[16px] leading-relaxed text-ink/80">
+      Long-form thinking from the lowercase team — positioning, content engines, AI search, and the brands we admire.
+    </p>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="px-6 sm:px-12 lg:px-20 py-16">
+    <a href={`/writing/${featured.slug}`} class="block group">
+      <div class="grid grid-cols-1 lg:grid-cols-2 border border-line rounded-sm overflow-hidden group-hover:border-[#ffb380] transition">
+        <div class="bg-bg p-10 sm:p-12 flex flex-col">
+          <div class="flex items-center gap-3 font-mono text-[11px] tracking-tight text-muted">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+            <span class="uppercase tracking-[0.1em]">{featured.tags.join(" • ")}</span>
+            <span>•</span>
+            <span>{formatDate(featured.date)}</span>
+          </div>
+          <h3 class="mt-6 text-[28px] sm:text-[36px] leading-[1.15] tracking-[-0.02em] font-light max-w-[560px]">
+            {featured.title}
+          </h3>
+          <p class="mt-6 text-[15px] text-ink/80 leading-relaxed max-w-[560px]">
+            {featured.excerpt}
+          </p>
+          <p class="mt-10 font-mono text-[11px] tracking-[0.15em] uppercase text-muted group-hover:text-ink transition">
+            {featured.readTime} — Read post →
+          </p>
+        </div>
+        <div class="bg-accent text-white p-10 sm:p-14 flex flex-col justify-between min-h-[320px]">
+          <div class="flex items-center justify-center gap-4">
+            <span class="h-px flex-1 bg-white/40"></span>
+            <Icon name="ph:notebook-light" class="w-6 h-6" />
+            <span class="h-px flex-1 bg-white/40"></span>
+          </div>
+          <div class="font-mono text-[11px] tracking-tight">
+            <span class="block text-white/70 uppercase tracking-[0.15em]">Written by</span>
+            <span class="block mt-2 text-[22px] font-light leading-tight">{featured.author}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- SECONDARY FEATURED GRID -->
+  <section class="post-grid px-6 sm:px-12 lg:px-20 py-16">
+    <div class="flex items-baseline justify-between mb-8 gap-6 flex-wrap">
+      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">Featured.</h2>
+      <div class="post-filter inline-flex items-center font-mono text-[11px] tracking-[0.1em] uppercase border border-line rounded-sm overflow-hidden">
+        <button type="button" data-filter="all" class="post-filter-btn px-4 py-2 transition" aria-pressed="true">All</button>
+        <button type="button" data-filter="SEO" class="post-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">SEO</button>
+        <button type="button" data-filter="GTM" class="post-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">GTM</button>
+        <button type="button" data-filter="Web Design" class="post-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">Web Design</button>
+      </div>
+    </div>
+    <div class="post-card-grid grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {secondary.map((p) => (
+        <BlogPostCard
+          slug={p.slug}
+          title={p.title}
+          excerpt={p.excerpt}
+          date={p.date}
+          readTime={p.readTime}
+          tags={p.tags}
+        />
+      ))}
+    </div>
+    <p class="post-empty hidden mt-12 text-center text-muted font-mono text-[12px] tracking-tight">No posts match this filter yet.</p>
+  </section>
+
+  <!-- ALL POSTS LIST -->
+  <section class="px-6 sm:px-12 lg:px-20 py-16">
+    <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light mb-8">All posts.</h2>
+    <ul class="divide-y divide-line">
+      {posts.map((p) => (
+        <li>
+          <a href={`/writing/${p.slug}`} class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-8 gap-2 group">
+            <span class="text-[24px] sm:text-[28px] tracking-[-0.02em] font-light text-ink group-hover:text-accent transition max-w-[720px]">{p.title}</span>
+            <span class="font-mono text-[11px] tracking-tight text-muted shrink-0">
+              {p.tags.join(" • ")} — {formatDate(p.date)}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <style>
+    .post-filter-btn[aria-pressed="true"] { background: var(--color-panel); color: white; }
+    .post-filter-btn[aria-pressed="false"] { color: #404040; }
+    .post-filter-btn[aria-pressed="false"]:hover { color: var(--color-ink); }
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    document.querySelectorAll<HTMLElement>(".post-grid").forEach((root) => {
+      const btns = root.querySelectorAll<HTMLButtonElement>(".post-filter-btn");
+      const cards = root.querySelectorAll<HTMLElement>(".post-card");
+      const empty = root.querySelector<HTMLElement>(".post-empty")!;
+      const apply = (filter: string) => {
+        btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
+        let visible = 0;
+        cards.forEach((card) => {
+          const tags = (card.dataset.tags || "").split("|").filter(Boolean);
+          const show = filter === "all" || tags.includes(filter);
+          card.classList.toggle("hidden", !show);
+          if (show) visible++;
+        });
+        empty.classList.toggle("hidden", visible > 0);
+      };
+      btns.forEach((b) => b.addEventListener("click", () => apply(b.dataset.filter || "all")));
+    });
+  </script>
+</BaseLayout>
