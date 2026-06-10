@@ -22,6 +22,7 @@ const clients = [
   { name: "SideShift", services: "Webflow Design & Development | Branding" },
   { name: "Andel", services: "Branding | Product Positioning" },
   { name: "Watertower Ventures", services: "Growth Advisory" },
+  { name: "Popform", services: "SEO | Content Creation", href: "https://popform.ai" },
 ];
 
 const services = [
@@ -143,7 +144,11 @@ const services = [
     <ul class="divide-y divide-line">
       {clients.map((c) => (
         <li class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-8 gap-2">
-          <span class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">{c.name}</span>
+          {c.href ? (
+            <a href={c.href} target="_blank" rel="noopener" class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light hover:text-accent transition">{c.name}</a>
+          ) : (
+            <span class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">{c.name}</span>
+          )}
           <span class="font-mono text-[11px] tracking-tight text-muted">{c.services}</span>
         </li>
       ))}
