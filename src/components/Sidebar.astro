@@ -178,26 +178,41 @@ const showSubnav = pathname.startsWith("/services/");
 </div>
 
 <script>
-  const wireMobileMenu = () => {
+  const openMenu = () => {
     const menu = document.querySelector<HTMLElement>(".mobile-menu");
     const btn = document.querySelector<HTMLButtonElement>(".mobile-menu-btn");
-    const closeBtn = document.querySelector<HTMLButtonElement>(".mobile-menu-close");
-    if (!menu || !btn) return;
-    const open = () => {
-      menu.classList.remove("hidden");
-      requestAnimationFrame(() => menu.classList.remove("opacity-0"));
-      btn.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    };
-    const close = () => {
-      menu.classList.add("opacity-0");
-      btn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      setTimeout(() => menu.classList.add("hidden"), 300);
-    };
-    btn.addEventListener("click", open);
-    closeBtn?.addEventListener("click", close);
-    menu.querySelectorAll<HTMLAnchorElement>("a").forEach((a) => a.addEventListener("click", close));
+    if (!menu) return;
+    menu.classList.remove("hidden");
+    requestAnimationFrame(() => menu.classList.remove("opacity-0"));
+    btn?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+  const closeMenu = () => {
+    const menu = document.querySelector<HTMLElement>(".mobile-menu");
+    const btn = document.querySelector<HTMLButtonElement>(".mobile-menu-btn");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    if (!menu) return;
+    menu.classList.add("opacity-0");
+    setTimeout(() => menu.classList.add("hidden"), 300);
+  };
+
+  // Delegated handler on document survives Astro view-transition swaps,
+  // where the persisted header button and the non-persisted menu panel
+  // would otherwise fall out of sync and leave a stale closure behind.
+  const wireMobileMenu = () => {
+    if ((document.body as any).__mobileMenuWired) return;
+    (document.body as any).__mobileMenuWired = true;
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".mobile-menu-btn")) {
+        openMenu();
+      } else if (target.closest(".mobile-menu-close")) {
+        closeMenu();
+      } else if (target.closest(".mobile-menu a")) {
+        closeMenu();
+      }
+    });
   };
 
   const syncSidebar = () => {
@@ -220,5 +235,10 @@ const showSubnav = pathname.startsWith("/services/");
 
   wireMobileMenu();
   syncSidebar();
-  document.addEventListener("astro:after-swap", syncSidebar);
+  document.addEventListener("astro:after-swap", () => {
+    // The freshly-swapped menu panel renders hidden; clear any leftover
+    // scroll-lock from a menu that was open at navigation time.
+    document.body.style.overflow = "";
+    syncSidebar();
+  });
 </script>
