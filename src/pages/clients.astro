@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EmailCapture from "../components/EmailCapture.astro";
-import CaseStudyCard from "../components/CaseStudyCard.astro";
-import { caseStudies } from "../data/caseStudies";
 import { Icon } from "astro-icon/components";
 
 const clients = [
@@ -88,56 +86,6 @@ const services = [
       </div>
     </div>
   </section>
-
-  <section class="case-study-grid px-6 sm:px-12 lg:px-20 py-16">
-    <div class="flex items-baseline justify-between mb-8 gap-6 flex-wrap">
-      <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light">More case studies.</h2>
-      <div class="case-filter inline-flex items-center font-mono text-[11px] tracking-[0.1em] uppercase border border-line rounded-sm overflow-hidden">
-        <button type="button" data-filter="all" class="case-filter-btn px-4 py-2 transition" aria-pressed="true">All</button>
-        <button type="button" data-filter="Web Design" class="case-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">Web Design</button>
-        <button type="button" data-filter="SEO / GEO" class="case-filter-btn px-4 py-2 transition border-l border-line" aria-pressed="false">SEO / GEO</button>
-      </div>
-    </div>
-    <div class="case-grid grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {caseStudies.map((c) => (
-        <CaseStudyCard
-          slug={c.slug}
-          name={c.name}
-          category={c.category}
-          services={c.services}
-          tags={c.tags}
-          media={c.media}
-        />
-      ))}
-    </div>
-    <p class="case-empty hidden mt-12 text-center text-muted font-mono text-[12px] tracking-tight">No case studies match this filter yet.</p>
-  </section>
-
-  <style>
-    .case-filter-btn[aria-pressed="true"] { background: var(--color-panel); color: white; }
-    .case-filter-btn[aria-pressed="false"] { color: #404040; }
-    .case-filter-btn[aria-pressed="false"]:hover { color: var(--color-ink); }
-  </style>
-
-  <script>
-    document.querySelectorAll<HTMLElement>(".case-study-grid").forEach((root) => {
-      const btns = root.querySelectorAll<HTMLButtonElement>(".case-filter-btn");
-      const cards = root.querySelectorAll<HTMLElement>(".case-card");
-      const empty = root.querySelector<HTMLElement>(".case-empty")!;
-      const apply = (filter: string) => {
-        btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
-        let visible = 0;
-        cards.forEach((card) => {
-          const tags = (card.dataset.tags || "").split("|").filter(Boolean);
-          const show = filter === "all" || tags.includes(filter);
-          card.classList.toggle("hidden", !show);
-          if (show) visible++;
-        });
-        empty.classList.toggle("hidden", visible > 0);
-      };
-      btns.forEach((b) => b.addEventListener("click", () => apply(b.dataset.filter || "all")));
-    });
-  </script>
 
   <section class="px-6 sm:px-12 lg:px-20 py-24">
     <h2 class="text-[28px] sm:text-[36px] tracking-[-0.02em] font-light mb-8">Clients.</h2>
