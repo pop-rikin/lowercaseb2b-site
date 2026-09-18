@@ -48,7 +48,7 @@ const positioningCards = [
 ---
 <BaseLayout title="SEO, GEO, and web design for startups and scale-ups.">
   <!-- HERO -->
-  <section class="hero px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
+  <section class="px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
     <h1 class="hero-title max-w-[1100px]">
       <span>Sites &amp; systems</span>
       <span>for organic growth</span>
@@ -66,15 +66,18 @@ const positioningCards = [
   <LogoStrip />
 
   <style>
-    .hero { container-type: inline-size; }
-    /* Fixed line breaks, sized to fit the column width */
     .hero-title {
-      font-size: min(12cqi, 104px);
+      font-size: 32px;
       line-height: 1.05;
       font-weight: 200;
       letter-spacing: -0.03em;
     }
     .hero-title span { display: block; white-space: nowrap; }
+    @media (min-width: 640px)  { .hero-title { font-size: 48px; } }
+    @media (min-width: 768px)  { .hero-title { font-size: 56px; } }
+    @media (min-width: 1024px) { .hero-title { font-size: 64px; } }
+    @media (min-width: 1280px) { .hero-title { font-size: 72px; } }
+    @media (min-width: 1536px) { .hero-title { font-size: 80px; } }
     @keyframes slide-in {
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
