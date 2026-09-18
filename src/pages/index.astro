@@ -48,13 +48,15 @@ const positioningCards = [
 ---
 <BaseLayout title="SEO, GEO, and web design for startups and scale-ups.">
   <!-- HERO -->
-  <section class="px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
-    <h1 class="max-w-[960px]">
-      The organic growth agency for the AI era.
+  <section class="hero px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
+    <h1 class="hero-title max-w-[1100px]">
+      <span>Sites &amp; systems</span>
+      <span>for organic growth</span>
+      <span>in the AI era.</span>
     </h1>
     <p class="mt-6 font-mono text-[12px] tracking-tight text-muted flex items-center gap-2 flex-wrap">
       <span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>
-      <span>FRAMER &amp; WEBFLOW DEVELOPMENT  |  SEO / GEO (AI SEARCH)  |  CONTENT CREATION  |  PRODUCT POSITIONING</span>
+      <span>SEO &amp; GEO (AI SEARCH)  |  CONTENT PRODUCTION  |  BRAND DESIGN  |  MODERN WEB DEVELOPMENT</span>
     </p>
     <div class="mt-12">
       <EmailCapture />
@@ -64,6 +66,15 @@ const positioningCards = [
   <LogoStrip />
 
   <style>
+    .hero { container-type: inline-size; }
+    /* Fixed line breaks, sized to fit the column width */
+    .hero-title {
+      font-size: min(12cqi, 104px);
+      line-height: 1.05;
+      font-weight: 200;
+      letter-spacing: -0.03em;
+    }
+    .hero-title span { display: block; white-space: nowrap; }
     @keyframes slide-in {
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
