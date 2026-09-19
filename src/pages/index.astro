@@ -46,7 +46,7 @@ const positioningCards = [
   { title: "Pricing & packaging", body: "Simplify selection and minimize the barriers to purchase." },
 ];
 ---
-<BaseLayout title="SEO, GEO, and web design for startups and scale-ups.">
+<BaseLayout title="Sites &amp; systems for organic growth: SEO, GEO &amp; web design | lowercase">
   <!-- HERO -->
   <section class="px-6 sm:px-12 lg:px-20 min-h-[85vh] flex flex-col justify-center pt-32 sm:pt-48 pb-24">
     <h1 class="hero-title max-w-[1100px]">
@@ -73,6 +73,7 @@ const positioningCards = [
       letter-spacing: -0.03em;
     }
     .hero-title span { display: block; white-space: nowrap; }
+    @media (min-width: 375px)  { .hero-title { font-size: 40px; } }
     @media (min-width: 640px)  { .hero-title { font-size: 48px; } }
     @media (min-width: 768px)  { .hero-title { font-size: 56px; } }
     @media (min-width: 1024px) { .hero-title { font-size: 64px; } }
